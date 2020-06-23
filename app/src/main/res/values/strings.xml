@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">Hms Features</string>
+
+
+    <!-- Kits Info -->
+    <string-array name="account_kit">
+        <item>Account</item>
+        <item>account_kit</item>
+        <item>Signs HUAWEI ID holders into your app without manual login or verification.
+            \n Helps you quickly get users authorization to access their information.
+            \n Enables your app to automatically input verification codes from SMS messages.</item>
+        <item> 1. Quick Sign-in \n 2. Quick QR Sign-in \n 3. Secure Sign-in</item>
+    </string-array>
+
+    <string-array name="analytics_kit">
+        <item>Analytics</item>
+        <item>analytics_kit</item>
+        <item>Fully extracting the value out of user behavior and attribute data is key for staying relevant with a constantly changing audience. </item>
+        <item> 1. Intelligent dashboards - \n \t\t Monitors app performance in preset and custom dashboards for faster operations.
+            \n\n 2. Diverse analytics models - \n \t\t Analyzes events, audiences, funnels, attribution, behavior, retention, real-time data, and app versions for data-driven app lifecycle management.
+            \n\n 3. App debugging - \n \t\t Allows final debugging on data reporting, preventing tracing point omission and event attribute setting errors.</item>
+
+    </string-array>
+
+    <string-array name="map_kit">
+        <item>Map</item>
+        <item>map_kit</item>
+        <item>Personalizing how your map displays and interacts with your users tailors their experience to them, not the other way around. Make location-based services work better for you so your app works better for your users.. </item>
+        <item> 1. Map display - \n \t\t Provides standard maps as well as UI elements such as markers, shapes, and layers for you to customize maps that better meet service scenarios.
+            \n\n 2. Map interaction - \n \t\t Enables users to interact with a map in your app through gestures and buttons in different scenarios.
+            \n\n 3. Route planning - \n \t\t Supports driving, cycling, walking, and other traveling modes, covering multiple countries and regions around the world.</item>
+
+    </string-array>
+
+    <string-array name="push_kit">
+        <item>Push</item>
+        <item>push_kit</item>
+        <item>Your users want relevance and freshness when it comes to content updates. Push instant messages from the cloud to user devices.</item>
+        <item> 1. Instant messaging - Gives you a 99% delivery rate even without your app in the background.
+            \n 2. Real-time message receipts - Enables real-time receipts sent to your server to help you track message sending.
+            \n 3. Targeted pushing -  Precisely pushes messages to target audiences based on tag combinations or topics.
+            \n 4. Tailored message styles - Provides common, large image, and custom styles for you to personalize messages and tailor them to your requirements.
+            \n 5. Auto language selection - Localizes your multilingual messages to each device for better global operations efficiency.</item>
+
+
+    </string-array>
+
+    <string-array name="location_kit">
+        <item>Location</item>
+        <item>location_kit</item>
+        <item>Fused Location - Intelligently combines GPS, Wi-Fi, and base stations to give you precise user locations.
+            \n Geo Location - Sets up virtual geographic boundaries to detect events such as when a device enters, exits, or lingers.
+            \n Activity Identification - Adjusts your app to user walking, running, cycling, driving, or idling.</item>
+        <item> 1. Navigation \n 2. Food and Truck \n 3. Travel and Accommodation \n 4. Convenient Living(Local information related to weather) </item>
+    </string-array>
+
+    <string-array name="ads_kit">
+        <item>Ads</item>
+        <item>ads_kit</item>
+        <item>For high-quality and personalized ads on your app, the Publisher service platform and unique advertising identifiers help you work seamlessly with third-party advertising and tracking platforms while protecting user privacy. Join our open and regulation-compliant ad ecosystem to earn more from your app in a faster and safer way..</item>
+
+        <item> 1. Traffic monetization \n 2. Advertising identifiers \n 3. Partners - AppsFlyer, Adjust, Singular, Kochuva </item>
+    </string-array>
+
+    <string-array name="ml_kit">
+        <item>ML</item>
+        <item>ml_kit</item>
+        <item>Use a full range of vision and language APIs to build your own AI apps, even if you are not a machine learning expert.</item>
+        <item>1. Text - \n \t\t Text recognition, \n \t\t Document recognition, \n \t\t Bank Card recognition, \n \t\t General Card recognition
+            \n\n 2. Speech &amp; Language - \n \t\t Translation, \n \t\t Language detection, \n \t\t Automatic speech recognition, \n \t\t Text to speech
+            \n\n 3. Vision - \n \t\t Image classification, \n \t\t Object detection and tracking, \n \t\t Landmark recognition, \n \t\t Image segmentation, \n \t\t Product visual search
+            \n\n 4. Face &amp; Body - \n \t\t Face detection</item>
+    </string-array>
+
+
+</resources>

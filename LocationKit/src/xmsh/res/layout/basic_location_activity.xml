@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/location_btn"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/custom_btn"
+        android:gravity="center"
+        android:text="Last Location"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#FFFFFF"
+        android:onClick="lastLocation"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/req_location_btn"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custom_btn"
+        android:gravity="center"
+        android:text="Request Location Updates"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/location_btn"
+        android:textColor="#FFFFFF"
+        android:onClick="requestLocation"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/rem_req_location_btn"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custom_btn"
+        android:gravity="center"
+        android:text="Remove Location Updates"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/req_location_btn"
+        android:textColor="#FFFFFF"
+        android:onClick="removeLocation"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/clear_req_location_btn"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custom_btn"
+        android:gravity="center"
+        android:text="Clear Location Updates"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rem_req_location_btn"
+        android:textColor="#FFFFFF"
+        android:onClick="clearLocationUpdates"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/location_txt_lat"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:minHeight="150dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rect_dash_border"
+        android:gravity="left"
+        android:textColor="#000000"
+        android:hint="Results"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clear_req_location_btn"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        />
+
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

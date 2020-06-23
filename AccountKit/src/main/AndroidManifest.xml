@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hms.accountkit">
+
+    <application>
+
+        <activity android:name=".BasicLoginActivity"/>
+        <activity android:name=".LoginDemoActivity"/>
+
+    </application>
+
+</manifest>

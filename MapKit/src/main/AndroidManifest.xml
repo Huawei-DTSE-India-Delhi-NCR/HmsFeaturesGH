@@ -1,0 +1,18 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hms.mapkit">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application>
+
+        <activity android:name=".MapDemoActivity"/>
+        <activity android:name=".MapActivity"/>
+        <activity android:name=".InteractingMapsActivity"/>
+
+    </application>
+
+
+
+</manifest>

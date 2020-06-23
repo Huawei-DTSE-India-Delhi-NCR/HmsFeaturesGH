@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="automatic">
+
+        <item>DISPLAYNOTIFICATION</item>
+        <item>CLICKNOTIFICATION</item>
+        <item>CLEARNOTIFICATION</item>
+        <item>JOINABTASK</item>
+        <item>INSTALLAPP</item>
+        <item>LAUNCHAPP</item>
+        <item>UPDATEAPP</item>
+        <item>APPFIRSTOPEN</item>
+        <item>ENTERSCREEN</item>
+        <item>EXITSCREEN</item>
+        <item>CLEARDATA</item>
+        <item>CLEARCACHE</item>
+        <item>UNINSTALLAPP</item>
+        <item>SIGNOUT</item>
+        <item>SIGNIN</item>
+        <item>APPERROR</item>
+        <item>INAPPPURCHASE</item>
+        <item>OPENAPPFROMAGCLINK</item>
+        <item>UPDATEAPPFROMAGCLINK</item>
+        <item>REOPENAPPFROMAGCLINK</item>
+        <item>REQUESTAD</item>
+        <item>DISPLAYAD</item>
+        <item>CLICKAD</item>
+        <item>OBTAINADAWARD</item>
+        <item>DISPLAYINAPPMESSAGE</item>
+        <item>DISMISSINAPPMESSAGE</item>
+        <item>CLICKINAPPMESSAGE</item>
+
+
+    </string-array>
+
+
+    <string-array name="pre_defined">
+
+        <item>CREATEPAYMENTINFO</item>
+        <item>ADDPRODUCT2CART</item>
+        <item>CLEARNOTIFICATION</item>
+        <item>JOINABTASK</item>
+        <item>INSTALLAPP</item>
+        <item>LAUNCHAPP</item>
+        <item>UPDATEAPP</item>
+        <item>APPFIRSTOPEN</item>
+        <item>ENTERSCREEN</item>
+        <item>EXITSCREEN</item>
+        <item>CLEARDATA</item>
+        <item>CLEARCACHE</item>
+        <item>UNINSTALLAPP</item>
+        <item>SIGNOUT</item>
+        <item>SIGNIN</item>
+        <item>APPERROR</item>
+        <item>INAPPPURCHASE</item>
+        <item>OPENAPPFROMAGCLINK</item>
+        <item>UPDATEAPPFROMAGCLINK</item>
+        <item>REOPENAPPFROMAGCLINK</item>
+        <item>REQUESTAD</item>
+        <item>DISPLAYAD</item>
+        <item>CLICKAD</item>
+        <item>OBTAINADAWARD</item>
+        <item>DISPLAYINAPPMESSAGE</item>
+        <item>DISMISSINAPPMESSAGE</item>
+        <item>CLICKINAPPMESSAGE</item>
+
+
+    </string-array>
+
+
+
+
+</resources>

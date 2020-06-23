@@ -1,0 +1,10 @@
+include ':Adskit'
+include ':AvailableToAllLbraries'
+include ':MLKit'
+include ':PushKit'
+include ':MapKit'
+include ':LocationKit'
+include ':AnalyticsKit'
+include ':AccountKit'
+include ':app'
+rootProject.name = "HmsFeatures"

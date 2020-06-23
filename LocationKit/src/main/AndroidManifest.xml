@@ -1,0 +1,41 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hms.locationkit">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+
+    <uses-permission android:name="com.huawei.hms.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+
+    <application>
+
+        <activity android:name=".LocationDemoActivity"/>
+       <activity android:name=".basic.BasicLocationActivity"/>
+       <activity android:name=".ai.LocationActivityService"/>
+        <activity android:name=".geofence.GeofenceActivity"/>
+
+        <receiver android:name=".ai.MyLocationBroadcastReceiver">
+
+        <intent-filter>
+            <action android:name="com.huawei.hms.location.ACTION_PROCESS_LOCATION"/>
+        </intent-filter>
+
+
+    </receiver>
+
+        <receiver android:name=".geofence.GeoFenceBroadcastReceiver">
+
+            <intent-filter>
+                <action android:name="com.huawei.hmssample.geofence.GeoFenceBroadcastReceiver.ACTION_PROCESS_LOCATION"/>
+            </intent-filter>
+
+
+        </receiver>
+
+
+
+    </application>
+
+
+</manifest>
