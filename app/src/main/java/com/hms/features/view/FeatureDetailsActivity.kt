@@ -23,7 +23,6 @@ import com.hms.pushkit.PushDemoActivity
 
 class FeatureDetailsActivity: AppCompatActivity() {
 
-
     private lateinit var binding: FeatureDetailsActivityBinding
     var featureEntity: FeatureEntity? = null
     private lateinit var clickHandlers: ClickHandlers
@@ -49,8 +48,6 @@ class FeatureDetailsActivity: AppCompatActivity() {
 
         getIntentExtras()
         setBinding()
-
-
     }
 
     private fun getIntentExtras() {

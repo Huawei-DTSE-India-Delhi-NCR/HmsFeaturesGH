@@ -25,12 +25,13 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
            >
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:contentScrim="?attr/colorPrimary"
+                app:contentScrim="?attr/colorPrimaryDark"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title">
 
@@ -172,6 +173,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:paddingBottom="100dp"
                     tools:listitem="@layout/feature_card_item"
+                    android:background="@android:color/transparent"
+
                    />
 
                 <!--app:layout_constraintTop_toBottomOf="@id/vp_banners"-->

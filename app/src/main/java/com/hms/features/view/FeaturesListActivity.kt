@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.hms.availabletoalllbraries.utils.ItemOffsetDecoration
 import com.hms.features.HmsApplication
 import com.hms.features.R
 import com.hms.features.dagger.factory.FeatureListViewModelFactory
@@ -114,6 +115,7 @@ class FeaturesListActivity : AppCompatActivity() {
     private fun showFeaturesList(featuresList: List<FeatureEntity>) {
         if (featuresAdapter == null) {
             rv_features_list.layoutManager = GridLayoutManager(this, 2)
+            rv_features_list.addItemDecoration(ItemOffsetDecoration(this,getResources().getDimensionPixelSize(R.dimen.offsetItem)))
             featuresAdapter = FeaturesAdapter(featuresList)
             rv_features_list.adapter = featuresAdapter
         } else {

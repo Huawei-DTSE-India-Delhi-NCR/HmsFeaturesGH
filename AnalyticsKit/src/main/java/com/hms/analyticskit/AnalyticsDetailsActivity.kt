@@ -4,9 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.hms.analyticskit.CommonAnalytics.Companion.analyticsInstance
 import com.hms.analyticskit.utils.EventType
-import com.huawei.hms.analytics.type.HAEventType
 import kotlinx.android.synthetic.main.analytics_details_activity.*
 
 class AnalyticsDetailsActivity : AppCompatActivity() {
