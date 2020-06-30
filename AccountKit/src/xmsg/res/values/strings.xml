@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GoogleSignIn</string>
+    <string name="web_client_id">323484423355-j94kun3f75lea10192ofq35c737juffd.apps.googleusercontent.com</string>
+    <string name="sign_out">SIGN OUT</string>
+
+</resources>

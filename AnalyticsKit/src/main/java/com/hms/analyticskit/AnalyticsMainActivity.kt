@@ -1,22 +1,23 @@
 package com.hms.analyticskit
 
+import android.app.Application
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.hms.analyticskit.CommonAnalytics.Companion.analyticsInstance
+import com.hms.analyticskit.utils.AnalyticsKit
 import com.hms.availabletoalllbraries.BaseActivity
-import com.huawei.hms.analytics.HiAnalytics
-import com.huawei.hms.analytics.type.HAEventType
 
 class AnalyticsMainActivity : BaseActivity(true) {
 
+    lateinit var analyticsInstance: AnalyticsKit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.analytics_main_activity)
+        supportActionBar?.title="Analytics Events"
 
+        analyticsInstance= AnalyticsKit.analyticsInstance
     }
 
 

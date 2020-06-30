@@ -3,15 +3,11 @@ package com.hms.features.view
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.SystemClock
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.databinding.adapters.ToolbarBindingAdapter
 import com.hms.accountkit.LoginDemoActivity
 import com.hms.adskit.AdsDemoActivity
 import com.hms.analyticskit.AnalyticsMainActivity
-import com.hms.features.R
 import com.hms.features.database.entity.FeatureEntity
 import com.hms.features.databinding.FeatureDetailsActivityBinding
 import com.hms.features.utils.AppEvents
@@ -57,6 +53,9 @@ class FeatureDetailsActivity: AppCompatActivity() {
 
     private fun setBinding() {
         binding = FeatureDetailsActivityBinding.inflate(layoutInflater)
+        val resId = resources.getIdentifier(featureEntity?.featureType+"_features", "string", packageName)
+        title = resources.getString(resId)
+
         binding.clickHandlers = ClickHandlers()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)

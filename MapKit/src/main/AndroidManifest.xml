@@ -10,6 +10,7 @@
         <activity android:name=".MapDemoActivity"/>
         <activity android:name=".MapActivity"/>
         <activity android:name=".InteractingMapsActivity"/>
+        <activity android:name=".routemap.RouteMapActivity"/>
 
     </application>
 

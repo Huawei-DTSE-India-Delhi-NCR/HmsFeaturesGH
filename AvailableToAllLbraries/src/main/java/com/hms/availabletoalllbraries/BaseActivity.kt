@@ -14,6 +14,7 @@ abstract class BaseActivity(var isBackRequired: Boolean) : AppCompatActivity() {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.setDisplayShowHomeEnabled(true)
         }
+        supportActionBar?.title=title
 
     }
 

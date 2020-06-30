@@ -38,17 +38,25 @@ android {
             versionNameSuffix "-xmsh"
         }
     }
-    sourceSets {
+    sourceSets{
+        xmsg {
+            java {
+                srcDirs 'src/xmsg/java'
+            }
+        }
+
         xmsh {
-            res {
-                srcDirs 'src/xmsh/res', 'src/xmsh/res/'
+            java {
+                srcDirs 'src/xmsh/java/'
             }
         }
-        main {
-            res {
-                srcDirs 'src/main/res', 'src/main/res/'
+
+        xmsgh {
+            java {
+                srcDirs 'src/xmsg/java', 'src/xmsh/java/'
             }
         }
+
     }
 
 }
@@ -64,8 +72,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-
     xmshImplementation 'com.huawei.hms:maps:4.0.1.302'
-    xmshImplementation 'com.squareup.okhttp3:okhttp:3.5.0'
+    xmsghImplementation 'com.huawei.hms:maps:4.0.1.302'
+  //  xmshImplementation 'com.squareup.okhttp3:okhttp:3.5.0'
+
+   // xmshImplementation 'com.squareup.retrofit2:retrofit:2.7.2'
+   // xmshImplementation 'com.squareup.retrofit2:converter-gson:2.7.2'
+   // xmshImplementation 'com.google.code.gson:gson:2.8.6'
 
 }

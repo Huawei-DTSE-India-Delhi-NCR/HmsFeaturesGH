@@ -4,6 +4,7 @@ import android.Manifest
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.Manifest.permission.ACCESS_WIFI_STATE
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -20,6 +21,15 @@ import com.huawei.hms.maps.model.LatLng
 
 class MapActivity: BaseActivity(true), OnMapReadyCallback {
 
+    companion object{
+
+        fun newStartActivity(context: Context){
+            context.startActivity(Intent(context,MapActivity::class.java))
+
+        }
+
+    }
+
     private val TAG = "MapViewDemoActivity"
 
     //HUAWEI map
@@ -33,6 +43,7 @@ class MapActivity: BaseActivity(true), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.hms_map_activity)
+        title=getString(R.string.basic_map)
         //get mapview instance
         mMapView = findViewById(R.id.mapView)
 

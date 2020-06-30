@@ -1,8 +1,8 @@
 package com.hms.pushkit
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import com.hms.availabletoalllbraries.BaseActivity
 
 class PushDemoActivity:BaseActivity(true) {
@@ -12,6 +12,7 @@ class PushDemoActivity:BaseActivity(true) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.push_demo_activity)
+        title=getString(R.string.push_kit_features)
 
     }
 
@@ -19,7 +20,7 @@ class PushDemoActivity:BaseActivity(true) {
     fun sendPushNotification(view:View)
     {
 
-
+        startActivity(Intent(this,BasicPushActivity::class.java))
 
 
     }

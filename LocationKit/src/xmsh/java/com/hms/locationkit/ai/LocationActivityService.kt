@@ -9,16 +9,26 @@ import android.os.Bundle
 import android.util.Log
 import com.hms.availabletoalllbraries.BaseActivity
 import com.hms.locationkit.R
+import com.hms.locationkit.geofence.GeofenceActivity
 import com.huawei.hmf.tasks.OnFailureListener
 import com.huawei.hmf.tasks.OnSuccessListener
 import com.huawei.hms.location.ActivityConversionInfo
 import com.huawei.hms.location.ActivityConversionRequest
 import com.huawei.hms.location.ActivityIdentification
 import com.huawei.hms.location.ActivityIdentificationService
-import kotlinx.android.synthetic.xmsh.location_identification.*
+import kotlinx.android.synthetic.main.location_identification.*
 
 
 class LocationActivityService: BaseActivity(true) {
+
+    companion object{
+
+        fun newStartActivity(context: Context){
+            context.startActivity(Intent(context, LocationActivityService::class.java))
+
+        }
+
+    }
 
     val TAG= LocationActivityService::class.java.simpleName
 
@@ -34,6 +44,7 @@ class LocationActivityService: BaseActivity(true) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.location_identification)
+        title=getString(R.string.activity_identification)
 
         activityIdentificationService = ActivityIdentification.getService(this)
         pendingIntent = getPendingIntent();

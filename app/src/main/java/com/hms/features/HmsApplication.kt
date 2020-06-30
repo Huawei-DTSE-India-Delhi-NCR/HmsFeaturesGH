@@ -1,8 +1,9 @@
 package com.hms.features
 
 import android.app.Application
-import android.content.Context
-import com.hms.analyticskit.CommonAnalytics
+import com.hms.adskit.CommonAds
+import com.hms.analyticskit.HAnalytics
+import com.hms.analyticskit.utils.AnalyticsKit
 import com.hms.features.dagger.component.DaggerHmsComponent
 import com.hms.features.dagger.component.HmsComponent
 import com.hms.features.dagger.module.RoomDatabaseModule
@@ -12,6 +13,7 @@ class HmsApplication : Application() {
         lateinit var instance: HmsApplication
     }
     lateinit var hmsComponent: HmsComponent
+    lateinit var analyticsKit: AnalyticsKit
 
     override fun onCreate() {
         super.onCreate()
@@ -30,6 +32,7 @@ class HmsApplication : Application() {
 
     private fun initialiseLibraries()
     {
-        CommonAnalytics.initialise(context = this)
+        AnalyticsKit.initialise(this)
+        CommonAds.initialise(this)
     }
 }

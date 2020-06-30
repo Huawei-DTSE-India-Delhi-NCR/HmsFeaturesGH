@@ -1,6 +1,7 @@
 package com.hms.locationkit
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -9,11 +10,17 @@ import android.util.Log
 import android.view.View
 import androidx.core.app.ActivityCompat
 import com.hms.availabletoalllbraries.BaseActivity
+import com.hms.availabletoalllbraries.reflections.CallClassMethods
+import com.hms.availabletoalllbraries.utils.Utils
 import com.hms.locationkit.ai.LocationActivityService
 import com.hms.locationkit.basic.BasicLocationActivity
 import com.hms.locationkit.geofence.GeofenceActivity
+import com.hms.locationkit.utils.LocationConst
+import kotlin.reflect.KClass
 
 class LocationDemoActivity: BaseActivity(true) {
+
+
 
     val TAG = "LocationUpdatesCallback"
 
@@ -22,6 +29,7 @@ class LocationDemoActivity: BaseActivity(true) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.location_demo_activity)
+        supportActionBar?.title=getString(R.string.location_kit_features)
 
         checkPermissions()
 
@@ -29,23 +37,22 @@ class LocationDemoActivity: BaseActivity(true) {
 
     fun basicLocationDetails(view: View)
     {
-        startActivity(Intent(this,
-            BasicLocationActivity::class.java))
+        CallClassMethods.moveToNewActivity(LocationConst.BasicLocationActivity_PATH, LocationConst.newStartActivity_METHOD, this)
     }
 
     fun activityLocationDetails(view: View)
     {
-        startActivity(Intent(this,
-            LocationActivityService::class.java))
+        CallClassMethods.moveToNewActivity(LocationConst.LocationActivityService_PATH, LocationConst.newStartActivity_METHOD, this)
     }
 
     fun GeofenceLocationDetails(view: View)
     {
-        startActivity(Intent(this,
-            GeofenceActivity::class.java))
+        CallClassMethods.moveToNewActivity(LocationConst.GeofenceActivity_PATH, LocationConst.newStartActivity_METHOD, this)
     }
 
-    fun checkPermissions(){
+
+
+    private fun checkPermissions(){
 
         val strings = arrayOf(
             Manifest.permission.ACCESS_FINE_LOCATION,

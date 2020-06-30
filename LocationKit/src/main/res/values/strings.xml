@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="basic_location">Activity Identification</string>
+    <string name="activity_identification">Activity Identification</string>
+    <string name="geo_fence">Geofence</string>
+
+</resources>

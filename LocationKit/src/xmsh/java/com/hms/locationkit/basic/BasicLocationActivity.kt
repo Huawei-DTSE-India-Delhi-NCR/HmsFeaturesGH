@@ -1,17 +1,29 @@
 package com.hms.locationkit.basic
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
 import com.hms.availabletoalllbraries.BaseActivity
 import com.hms.locationkit.R
+import com.hms.locationkit.ai.LocationActivityService
 import com.hms.locationkit.utils.CusLocationProvider
 import com.hms.locationkit.utils.LocationUpdates
-import kotlinx.android.synthetic.xmsh.basic_location_activity.*
+import kotlinx.android.synthetic.main.basic_location_activity.*
 
 
 class BasicLocationActivity: BaseActivity(true),
     LocationUpdates {
+
+    companion object{
+
+        fun newStartActivity(context: Context){
+            context.startActivity(Intent(context, BasicLocationActivity::class.java))
+
+        }
+
+    }
 
 
    lateinit var latTv: AppCompatTextView
@@ -22,6 +34,7 @@ class BasicLocationActivity: BaseActivity(true),
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.basic_location_activity)
+        supportActionBar?.title="Location Updates"
 
         latTv=findViewById(R.id.location_txt_lat)
 

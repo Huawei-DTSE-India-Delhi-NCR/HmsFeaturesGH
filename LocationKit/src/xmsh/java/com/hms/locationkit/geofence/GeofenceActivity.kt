@@ -1,10 +1,12 @@
 package com.hms.locationkit.geofence
 
 import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.hms.availabletoalllbraries.BaseActivity
+import com.hms.locationkit.LocationDemoActivity
 import com.hms.locationkit.R
 import com.hms.locationkit.utils.CusLocationProvider
 import com.hms.locationkit.utils.LocationUpdates
@@ -14,11 +16,21 @@ import com.huawei.hms.location.Geofence
 import com.huawei.hms.location.GeofenceRequest
 import com.huawei.hms.location.GeofenceService
 import com.huawei.hms.location.LocationServices
-import kotlinx.android.synthetic.xmsh.location_identification.*
+import kotlinx.android.synthetic.main.location_identification.*
 
 
 class GeofenceActivity: BaseActivity(true)
 {
+
+
+    companion object{
+
+        fun newStartActivity(context: Context){
+            context.startActivity(Intent(context, GeofenceActivity::class.java))
+
+        }
+
+    }
 
     private var geofenceService: GeofenceService? = null
     private var idList: ArrayList<String>? = ArrayList()
@@ -35,6 +47,7 @@ class GeofenceActivity: BaseActivity(true)
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.location_identification)
+        title=getString(R.string.geo_fence)
 
         geofenceService = LocationServices.getGeofenceService(this)
         pendingIntent = getPendingIntent()

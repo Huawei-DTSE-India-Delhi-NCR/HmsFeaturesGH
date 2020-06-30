@@ -3,6 +3,7 @@ package com.hms.pushkit
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import com.huawei.agconnect.config.AGConnectServicesConfig
@@ -15,8 +16,9 @@ class BasicPushActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         getToken()
+
+
 
 
     }
@@ -33,6 +35,7 @@ class BasicPushActivity: AppCompatActivity() {
                     if (!TextUtils.isEmpty(pushtoken)) {
                         Log.i(TAG, "get token:$pushtoken")
                         // showLog(pushtoken)
+
                     }
                 } catch (e: Exception) {
                     Log.i(TAG, "getToken failed, $e")

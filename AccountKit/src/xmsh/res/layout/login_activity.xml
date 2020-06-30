@@ -7,19 +7,39 @@
     android:layout_height="match_parent"
   >
 
-    <com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/status_details"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:minHeight="250dp"
+        android:textSize="18sp"
+        android:text="User Details"
+        android:textStyle="bold"
+        android:layout_marginTop="100dp"
+        android:padding="20dp"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/rect_dash_border"
+
+        />
+
+    <com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton
+        app:layout_constraintTop_toBottomOf="@id/status_details"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
         android:id="@+id/sign_in_button"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp">
 
     </com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

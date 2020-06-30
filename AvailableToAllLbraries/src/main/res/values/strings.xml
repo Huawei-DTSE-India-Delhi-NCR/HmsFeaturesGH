@@ -2,4 +2,25 @@
    <string name="default_btn">Submit</string>
 
 
+   <string name="ads_kit">Ads Kit</string>
+   <string name="ads_kit_features">Ads Features</string>
+
+   <string name="account_kit">Account Kit</string>
+   <string name="account_kit_features">Account Kit Features</string>
+
+   <string name="push_kit">Push Kit</string>
+   <string name="push_kit_features">Push Kit Features</string>
+
+   <string name="analytics_kit">Analytics Kit</string>
+   <string name="analytics_kit_features">Analytics Kit Features</string>
+
+   <string name="location_kit">Location Kit</string>
+   <string name="location_kit_features">Location Kit Features</string>
+
+   <string name="map_kit">Map Kit</string>
+   <string name="map_kit_features">Map Kit Features</string>
+
+   <string name="ml_kit">ML Kit</string>
+   <string name="ml_kit_features">ML Kit Features</string>
+
 </resources>

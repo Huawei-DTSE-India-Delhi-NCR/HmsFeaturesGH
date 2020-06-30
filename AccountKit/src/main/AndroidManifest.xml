@@ -3,7 +3,8 @@
 
     <application>
 
-        <activity android:name=".BasicLoginActivity"/>
+        <activity android:name=".GBasicLoginActivity"/>
+        <activity android:name=".HBasicLoginActivity"/>
         <activity android:name=".LoginDemoActivity"/>
 
     </application>

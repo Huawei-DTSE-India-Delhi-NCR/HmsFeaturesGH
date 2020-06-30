@@ -9,23 +9,24 @@ import com.huawei.hms.analytics.HiAnalyticsInstance
 import com.huawei.hms.analytics.HiAnalyticsTools
 import com.huawei.hms.analytics.type.HAEventType
 import com.huawei.hms.analytics.type.HAParamType
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant
-import com.huawei.hms.support.hianalytics.HiAnalyticsUtil
 
-class CommonAnalytics(context: Context){
+class HAnalytics(context: Context){
 
     var hiAnalyticsInstance: HiAnalyticsInstance
     val cContext=context
 
     companion object{
-        lateinit var analyticsInstance : CommonAnalytics
+        lateinit var analyticsInstance : HAnalytics
 
         fun initialise(context: Context) {
-            analyticsInstance=SingletonHolder<CommonAnalytics, Context>(::CommonAnalytics).getInstance(context)
+            Log.d("HHH","GOT it HMS")
+            analyticsInstance=SingletonHolder<HAnalytics, Context>(::HAnalytics).getInstance(context)
         }
     }
 
     init {
+        Log.d("HHH","GOT it Constructor HMS")
+
         // Enable Analytics Kit Log
         HiAnalyticsTools.enableLog()
        hiAnalyticsInstance = HiAnalytics.getInstance(context)

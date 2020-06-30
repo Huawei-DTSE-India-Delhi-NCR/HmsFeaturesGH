@@ -1,7 +1,8 @@
 package com.hms.adskit
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.View
 import com.hms.availabletoalllbraries.BaseActivity
 
 class AdsDemoActivity: BaseActivity(true) {
@@ -11,6 +12,16 @@ class AdsDemoActivity: BaseActivity(true) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.ads_demo_activity)
+        title=getString(R.string.ads_kit_features)
+
+
+
+    }
+
+
+    fun bannerAdsActivity(view:View)
+    {
+      //  startActivity(Intent(this,BannerAdsActivity::class.java))
 
     }
 

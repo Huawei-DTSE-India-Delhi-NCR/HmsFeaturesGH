@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="interactive_map">Interactive Map</string>
+    <string name="basic_map">Interactive Map</string>
+    <string name="rout_map">Rout Map</string>
+
+</resources>

@@ -39,6 +39,27 @@ android {
         }
     }
 
+    sourceSets{
+        xmsg {
+            java {
+                srcDirs 'src/xmsg/java'
+            }
+        }
+
+        xmsh {
+            java {
+                srcDirs 'src/xmsh/java/'
+            }
+        }
+
+        xmsgh {
+            java {
+                srcDirs 'src/xmsg/java', 'src/xmsh/java/'
+            }
+        }
+
+    }
+
 }
 
 dependencies {
@@ -54,5 +75,6 @@ dependencies {
 
 
     xmshImplementation 'com.huawei.hms:push:4.0.4.301'
+    xmsghImplementation 'com.huawei.hms:push:4.0.4.301'
 
 }

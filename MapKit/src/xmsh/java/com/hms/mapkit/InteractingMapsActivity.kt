@@ -2,6 +2,7 @@ package com.hms.mapkit
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -21,6 +22,15 @@ import com.huawei.hms.maps.model.LatLngBounds
 
 class InteractingMapsActivity :BaseActivity(true), OnMapReadyCallback {
 
+    companion object{
+
+        fun newStartActivity(context: Context){
+            context.startActivity(Intent(context,InteractingMapsActivity::class.java))
+
+        }
+
+    }
+
     private val TAG = "InteractingMapsActivity"
 
     //HUAWEI map
@@ -30,61 +40,13 @@ class InteractingMapsActivity :BaseActivity(true), OnMapReadyCallback {
 
     private val MAPVIEW_BUNDLE_KEY = "MapViewBundleKey"
 
-    // Method 1: Increase the camera zoom level by 1 and retain other attribute settings.
-   // var cameraUpdate = CameraUpdateFactory.zoomIn()
 
-    // Method 2: Decrease the camera zoom level by 1 and retain other attribute settings.
-  //  var cameraUpdate1 = CameraUpdateFactory.zoomOut()
-
-   /* // Method 3: Set the camera zoom level to a specified value and retain other attribute settings.
-    var zoom : Float= 8.0f
-    var cameraUpdate2 = CameraUpdateFactory.zoomTo(zoom)
-
-    // Method 4: Increase or decrease the camera zoom level by a specified value.
-    var amount = 2.0f
-    var cameraUpdate3 = CameraUpdateFactory.zoomBy(amount)
-
-    // Method 5: Move the camera to the specified center point and increase or decrease the camera zoom level by a specified value.
-    // Set the position of a point on the screen.
-    var point: Point = Point(31, 118)
-    var amount = 2.0f
-    var cameraUpdate4 = CameraUpdateFactory.zoomBy(amount, point)
-
-    // Method 6: Set the latitude and longitude of the camera and retain other attribute settings.
-    var latLng1 = LatLng(31.5, 118.9)
-    var cameraUpdate5 = CameraUpdateFactory.newLatLng(latLng1)*/
-
-    // Method 7: Set the visible region and padding.
-    var padding = 100
-    var latLng1 = LatLng(12.9698, 77.7500)
-    var latLng2 = LatLng(12.9569, 77.7011)
-    var latLngBounds = LatLngBounds(latLng1, latLng2)
-   // var cameraUpdate = CameraUpdateFactory.newLatLngBounds(latLngBounds, padding)
-    var zoom = 0.0f
-
-   /* // Method 8: Set the center point and zoom level of the camera.
-    var zoom = 0.0f
-    var latLng2 = LatLng(32.5, 119.9)
-    var cameraUpdate7 = CameraUpdateFactory.newLatLngZoom(latLng2, zoom)*/
-
-    // Method 9: Scroll the camera by specified pixels.
-    var x = 100.0f
-    var y = 100.0f
-  //  var cameraUpdate8 = CameraUpdateFactory.scrollBy(x, y)
-
-    // Method 10: Specify the camera position.
-    // Set the tilt.
-    var tilt = 2.2f
-
-    // Set the bearing.
-    var bearing = 31.5f
-    var cameraPosition = CameraPosition(latLng1, zoom, tilt, bearing)
-    var cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.hms_map_activity)
+        title=getString(R.string.interactive_map)
         //get mapview instance
         mMapView = findViewById(R.id.mapView)
 
@@ -108,80 +70,7 @@ class InteractingMapsActivity :BaseActivity(true), OnMapReadyCallback {
         Log.d(TAG, "onMapReady: ");
         hMap = map;
 
-        // Move the map camera in animation mode.
-        hMap?.animateCamera(cameraUpdate);
-/*// Move the map camera in animation mode and set the API to be called back when the animation stops.
-        hMap?.animateCamera(cameraUpdate, object:HuaweiMap.CancelableCallback{
-            override fun onFinish() {
 
-            }
-
-            override fun onCancel() {
-
-            }
-        } );
-// Move the map camera in animation mode, and set the animation duration and API to be called back when the animation stops.
-        hMap?.animateCamera(cameraUpdate, 6, object:HuaweiMap.CancelableCallback{
-            override fun onFinish() {
-
-            }
-
-            override fun onCancel() {
-
-            }
-        } );*/
-// Move the map camera in non-animation mode.
-        hMap?.moveCamera(cameraUpdate);
-
-        // Set the preferred minimum zoom level.
-        hMap?.setMinZoomPreference(zoom);
-// Set the preferred maximum zoom level.
-        hMap?.setMaxZoomPreference(1f);
-// Reset the maximum and minimum zoom levels.
-        hMap?.resetMinMaxZoomPreference();
-
-        // Specify whether to enable the zoom controls.
-        hMap?.getUiSettings()?.setZoomControlsEnabled(false);
-
-        // Specify whether to enable the compass.
-        hMap?.getUiSettings()?.setCompassEnabled(false);
-
-        // Enable the my-location layer.
-        hMap?.setMyLocationEnabled(true);
-// Enable the function of displaying the my-location icon.
-        hMap?.getUiSettings()?.setMyLocationButtonEnabled(true);
-
-        // Specify whether to enable the scroll gestures.
-        hMap?.getUiSettings()?.setScrollGesturesEnabled(true);
-
-        // Specify whether to enable the rotate gestures.
-        hMap?.getUiSettings()?.setRotateGesturesEnabled(true);
-
-        hMap!!.setOnMyLocationButtonClickListener {
-            Toast.makeText(
-                applicationContext,
-                "MyLocation button clicked",
-                Toast.LENGTH_SHORT
-            ).show()
-            false
-        }
-
-        hMap!!.setOnInfoWindowClickListener { marker ->
-            Toast.makeText(
-                applicationContext,
-                "onInfoWindowClick:" + marker.title,
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-
-        hMap!!.setOnMarkerClickListener { marker ->
-            Toast.makeText(
-                applicationContext,
-                "onMarkerClick:" + marker.title,
-                Toast.LENGTH_SHORT
-            ).show()
-            false
-        }
     }
 
     override fun onStart() {

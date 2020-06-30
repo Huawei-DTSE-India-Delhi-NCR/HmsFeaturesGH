@@ -4,6 +4,13 @@
     <application>
 
         <activity android:name=".AdsDemoActivity"/>
+        <activity android:name=".BannerAdsActivity"/>
+        <activity android:name=".InterstitialAdsActivity"/>
+        <activity android:name=".SplashAdsActivity"/>
+        <activity android:name=".NativeAdsActivity"/>
+        <activity android:name=".RewardAdsActivity"/>
+
+
 
     </application>
 </manifest>

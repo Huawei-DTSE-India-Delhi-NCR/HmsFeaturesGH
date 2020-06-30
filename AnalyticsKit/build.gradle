@@ -39,6 +39,28 @@ android {
         }
     }
 
+    sourceSets{
+        xmsg {
+            java {
+                srcDirs 'src/xmsg/java'
+            }
+        }
+
+        xmsh {
+            java {
+                srcDirs 'src/xmsh/java/'
+            }
+        }
+
+        xmsgh {
+            java {
+                srcDirs 'src/xmsg/java', 'src/xmsh/java/'
+            }
+        }
+
+    }
+
+
     dataBinding {
         enabled true
     }
@@ -56,6 +78,11 @@ dependencies {
     ext{
         hianalyticsV='4.0.2.300'
         adsIdentifierV='3.4.28.305'
+        playServicesBaseV='17.1.0'
+        playServicesBasementV='17.1.0'
+        firebaseAnalyticsV='17.2.1'
+        playServicesAnalyticsV='17.0.0'
+        playServicesAdsIdentifierV='17.0.0@aar'
     }
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -70,6 +97,19 @@ dependencies {
 
     xmshImplementation "com.huawei.hms:hianalytics:${hianalyticsV}"
     xmshImplementation "com.huawei.hms:ads-identifier:${adsIdentifierV}"
+
+    xmsgImplementation "com.google.android.gms:play-services-base:${playServicesBaseV}"
+    xmsgImplementation "com.google.android.gms:play-services-basement:${playServicesBasementV}"
+    xmsgImplementation "com.google.firebase:firebase-analytics:${firebaseAnalyticsV}"
+    xmsgImplementation "com.google.android.gms:play-services-analytics:${playServicesAnalyticsV}"
+
+    xmsghImplementation "com.huawei.hms:hianalytics:${hianalyticsV}"
+    xmsghImplementation "com.huawei.hms:ads-identifier:${adsIdentifierV}"
+
+    xmsghImplementation "com.google.android.gms:play-services-base:${playServicesBaseV}"
+    xmsghImplementation "com.google.android.gms:play-services-basement:${playServicesBasementV}"
+    xmsghImplementation "com.google.firebase:firebase-analytics:${firebaseAnalyticsV}"
+    xmsghImplementation "com.google.android.gms:play-services-analytics:${playServicesAnalyticsV}"
 
     // androidx
     implementation 'androidx.appcompat:appcompat:1.1.0'

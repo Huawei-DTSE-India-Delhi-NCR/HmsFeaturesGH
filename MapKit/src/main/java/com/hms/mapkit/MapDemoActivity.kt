@@ -3,10 +3,11 @@ package com.hms.mapkit
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import com.hms.availabletoalllbraries.BaseActivity
+import com.hms.availabletoalllbraries.reflections.CallClassMethods
+import com.hms.mapkit.routemap.RouteMapActivity
+import com.hms.mapkit.utils.MapsConst
 
 class MapDemoActivity: BaseActivity(true) {
 
@@ -21,15 +22,23 @@ class MapDemoActivity: BaseActivity(true) {
 
         basicDemoBtn.setOnClickListener(View.OnClickListener {
 
-            startActivity(Intent(this,MapActivity::class.java))
-
+//            startActivity(Intent(this,MapActivity::class.java))
+            CallClassMethods.moveToNewActivity(MapsConst.MapActivity_PATH, MapsConst.newStartActivity_METHOD, this)
         })
 
     }
 
     fun interactive(view:View)
     {
-        startActivity(Intent(this, InteractingMapsActivity::class.java))
+       // startActivity(Intent(this, InteractingMapsActivity::class.java))
+        CallClassMethods.moveToNewActivity(MapsConst.InteractingMapsActivity_PATH, MapsConst.newStartActivity_METHOD, this)
+
+    }
+
+    fun routeMap(view:View)
+    {
+        // startActivity(Intent(this, RouteMapActivity::class.java))
+        CallClassMethods.moveToNewActivity(MapsConst.RouteMapActivity_PATH, MapsConst.newStartActivity_METHOD, this)
 
     }
 
