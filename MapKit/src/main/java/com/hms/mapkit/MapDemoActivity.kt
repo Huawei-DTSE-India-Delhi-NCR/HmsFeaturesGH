@@ -17,6 +17,7 @@ class MapDemoActivity: BaseActivity(true) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.map_demo_activity)
+        supportActionBar?.title="Map Features"
 
         basicDemoBtn=findViewById(R.id.basic_map)
 

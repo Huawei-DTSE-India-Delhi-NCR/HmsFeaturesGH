@@ -9,7 +9,7 @@ import com.huawei.hms.ads.reward.Reward
 import com.huawei.hms.ads.reward.RewardAd
 import com.huawei.hms.ads.reward.RewardAdLoadListener
 import com.huawei.hms.ads.reward.RewardAdStatusListener
-import kotlinx.android.synthetic.xmsh.activity_reward.*
+import kotlinx.android.synthetic.xmsgh.activity_reward.*
 import java.util.*
 
 class RewardAdsActivity : BaseActivity(true) {
@@ -30,7 +30,7 @@ class RewardAdsActivity : BaseActivity(true) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_reward)
-
+        supportActionBar?.title="Reward Ads"
 
     }
 

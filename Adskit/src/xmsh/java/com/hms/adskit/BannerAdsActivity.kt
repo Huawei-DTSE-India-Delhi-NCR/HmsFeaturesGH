@@ -7,7 +7,7 @@ import com.huawei.hms.ads.AdParam
 import com.huawei.hms.ads.BannerAdSize
 import com.huawei.hms.ads.HwAds
 import com.huawei.hms.ads.banner.BannerView
-import kotlinx.android.synthetic.xmsh.banner_layout.*
+import kotlinx.android.synthetic.xmsgh.banner_layout.*
 
 
 class BannerAdsActivity : BaseActivity(true) {
@@ -16,6 +16,8 @@ class BannerAdsActivity : BaseActivity(true) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.banner_layout)
+
+        supportActionBar?.title="Banner Ads"
 
 
         // Obtain BannerView based on the configuration in layout/ad_fragment.xml.

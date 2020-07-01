@@ -2,7 +2,7 @@
 <resources>
 
     <string name="interactive_map">Interactive Map</string>
-    <string name="basic_map">Interactive Map</string>
-    <string name="rout_map">Rout Map</string>
+    <string name="basic_map">Basic Map</string>
+    <string name="rout_map">Route Map</string>
 
 </resources>

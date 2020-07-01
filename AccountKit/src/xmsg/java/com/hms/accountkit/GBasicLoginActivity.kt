@@ -38,6 +38,7 @@ class GBasicLoginActivity : BaseActivity(true) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.layout_activity)
+        supportActionBar?.title="Google Login"
 
         //Then we need a GoogleSignInOptions object
         //And we need to build it as below

@@ -40,7 +40,7 @@ class HBasicLoginActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_activity)
-        title=getString(R.string.account_kit_features)
+        supportActionBar?.title="HMS Basic Login"
 
         val gso =HuaweiIdAuthParamsHelper(HuaweiIdAuthParams.DEFAULT_AUTH_REQUEST_PARAM)
             .setEmail()

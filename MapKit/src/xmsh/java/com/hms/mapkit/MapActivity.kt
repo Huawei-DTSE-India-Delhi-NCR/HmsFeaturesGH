@@ -43,7 +43,7 @@ class MapActivity: BaseActivity(true), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.hms_map_activity)
-        title=getString(R.string.basic_map)
+        supportActionBar?.title=getString(R.string.basic_map)
         //get mapview instance
         mMapView = findViewById(R.id.mapView)
 
@@ -59,25 +59,17 @@ class MapActivity: BaseActivity(true), OnMapReadyCallback {
 
     }
 
-    fun setUpMap()
-    {
-
-
-    }
-
     @RequiresPermission(allOf = [ACCESS_FINE_LOCATION, ACCESS_WIFI_STATE])
     override fun onMapReady(map: HuaweiMap?) {
         //get map instance in a callback method
         Log.d(TAG, "onMapReady: ");
-        hMap = map;
+        hMap = map?.apply {
+            setMyLocationEnabled(true);// Enable the my-location overlay.
+            getUiSettings()?.setMyLocationButtonEnabled(true);// Enable the my-location icon.
+            isMyLocationEnabled = false
+            moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(12.9698, 77.7500), 10f))
+        };
 
-        hMap?.mapType=HuaweiMap.MAP_TYPE_NORMAL
-        hMap?.setMyLocationEnabled(true);// Enable the my-location overlay.
-        hMap?.getUiSettings()?.setMyLocationButtonEnabled(true);// Enable the my-location icon.
-        //  map?.setWatermarkEnabled(true)
-        //  map?.setMarkersClustering(true)
-        hMap!!.isMyLocationEnabled = false
-        hMap!!.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(12.9698, 77.7500), 10f))
     }
 
     override fun onStart() {

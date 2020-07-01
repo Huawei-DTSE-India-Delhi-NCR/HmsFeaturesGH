@@ -34,51 +34,52 @@ class RoomDatabaseModule(application: Application) {
 
     private fun addSampleFeaturesToDatabase() {
         var arrarList=hmsApplication.resources.getStringArray(R.array.account_kit)
-        val book1 = FeatureEntity(1,
-            arrarList[0].toString(),
-            arrarList[1].toString(),
-            arrarList[2].toString(),
-            arrarList[3].toString())
-
-
-        arrarList=hmsApplication.resources.getStringArray(R.array.push_kit)
-
-        val book2 = FeatureEntity(2,
-            arrarList[0].toString(),
-            arrarList[1].toString(),
-            arrarList[2].toString(),
-            arrarList[3].toString())
-
-        arrarList=hmsApplication.resources.getStringArray(R.array.analytics_kit)
-        val book3 = FeatureEntity(3,
+        val fAccount = FeatureEntity(1,
             arrarList[0].toString(),
             arrarList[1].toString(),
             arrarList[2].toString(),
             arrarList[3].toString())
 
         arrarList=hmsApplication.resources.getStringArray(R.array.location_kit)
-        val book4 = FeatureEntity(4,
-            arrarList[0].toString(),
-            arrarList[1].toString(),
-            arrarList[2].toString(),
-            arrarList[3].toString())
-
-        arrarList=hmsApplication.resources.getStringArray(R.array.ads_kit)
-        val book5 = FeatureEntity(5,
-            arrarList[0].toString(),
-            arrarList[1].toString(),
-            arrarList[2].toString(),
-            arrarList[3].toString())
-
-        arrarList=hmsApplication.resources.getStringArray(R.array.ml_kit)
-        val book6 = FeatureEntity(6,
+        val fLocation = FeatureEntity(2,
             arrarList[0].toString(),
             arrarList[1].toString(),
             arrarList[2].toString(),
             arrarList[3].toString())
 
         arrarList=hmsApplication.resources.getStringArray(R.array.map_kit)
-        val book7 = FeatureEntity(7,
+        val fMap = FeatureEntity(3,
+            arrarList[0].toString(),
+            arrarList[1].toString(),
+            arrarList[2].toString(),
+            arrarList[3].toString())
+
+
+        arrarList=hmsApplication.resources.getStringArray(R.array.analytics_kit)
+        val fAnalytics = FeatureEntity(4,
+            arrarList[0].toString(),
+            arrarList[1].toString(),
+            arrarList[2].toString(),
+            arrarList[3].toString())
+
+        arrarList=hmsApplication.resources.getStringArray(R.array.push_kit)
+
+        val fPush = FeatureEntity(5,
+            arrarList[0].toString(),
+            arrarList[1].toString(),
+            arrarList[2].toString(),
+            arrarList[3].toString())
+
+
+        arrarList=hmsApplication.resources.getStringArray(R.array.ads_kit)
+        val fAds = FeatureEntity(6,
+            arrarList[0].toString(),
+            arrarList[1].toString(),
+            arrarList[2].toString(),
+            arrarList[3].toString())
+
+        arrarList=hmsApplication.resources.getStringArray(R.array.ml_kit)
+        val fMl = FeatureEntity(7,
             arrarList[0].toString(),
             arrarList[1].toString(),
             arrarList[2].toString(),
@@ -87,14 +88,16 @@ class RoomDatabaseModule(application: Application) {
 
 
 
+
+
         val featureDAO = hmsDatabase.getFeatureDAO()
-        featureDAO.addFeature(book1)
-        featureDAO.addFeature(book7)
-        featureDAO.addFeature(book2)
-        featureDAO.addFeature(book3)
-        featureDAO.addFeature(book4)
-        featureDAO.addFeature(book5)
-        featureDAO.addFeature(book6)
+        featureDAO.addFeature(fAccount)
+        featureDAO.addFeature(fLocation)
+        featureDAO.addFeature(fMap)
+        featureDAO.addFeature(fAnalytics)
+        featureDAO.addFeature(fAds)
+        featureDAO.addFeature(fPush)
+        featureDAO.addFeature(fMl)
     }
 
     @Singleton

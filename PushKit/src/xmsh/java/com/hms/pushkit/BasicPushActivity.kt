@@ -16,6 +16,7 @@ class BasicPushActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //setContentView(R.layout.push_demo_activity)
         getToken()
 
 

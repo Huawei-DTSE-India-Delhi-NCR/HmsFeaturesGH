@@ -15,5 +15,10 @@
     </application>
 
 
+    <meta-data
+        android:name="com.huawei.hms.client.appid"
+        android:value="102422611" />
+
+
 
 </manifest>

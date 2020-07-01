@@ -44,7 +44,7 @@ class LocationActivityService: BaseActivity(true) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.location_identification)
-        title=getString(R.string.activity_identification)
+        supportActionBar?.title=getString(R.string.activity_identification)
 
         activityIdentificationService = ActivityIdentification.getService(this)
         pendingIntent = getPendingIntent();

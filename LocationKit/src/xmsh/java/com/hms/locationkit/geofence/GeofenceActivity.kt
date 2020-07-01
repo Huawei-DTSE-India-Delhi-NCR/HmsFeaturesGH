@@ -47,7 +47,7 @@ class GeofenceActivity: BaseActivity(true)
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.location_identification)
-        title=getString(R.string.geo_fence)
+        supportActionBar?.title=getString(R.string.geo_fence)
 
         geofenceService = LocationServices.getGeofenceService(this)
         pendingIntent = getPendingIntent()

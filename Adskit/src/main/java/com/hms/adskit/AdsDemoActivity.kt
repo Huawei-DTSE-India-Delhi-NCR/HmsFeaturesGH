@@ -12,7 +12,7 @@ class AdsDemoActivity: BaseActivity(true) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.ads_demo_activity)
-        title=getString(R.string.ads_kit_features)
+        supportActionBar?.title=getString(R.string.ads_kit_features)
 
 
 
