@@ -23,4 +23,7 @@
    <string name="ml_kit">ML Kit</string>
    <string name="ml_kit_features">ML Kit Features</string>
 
+   <string name="panorama_kit">ML Kit</string>
+   <string name="panorama_kit_features">ML Kit Features</string>
+
 </resources>

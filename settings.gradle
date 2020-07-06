@@ -1,3 +1,4 @@
+include ':ParnoramaKit'
 include ':Adskit'
 include ':AvailableToAllLbraries'
 include ':MLKit'

@@ -15,8 +15,6 @@ class LoginDemoActivity: AppCompatActivity(){
 
     lateinit var basicDemoBtn: AppCompatTextView
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
        setContentView(R.layout.account_demo_activity)
@@ -25,14 +23,9 @@ class LoginDemoActivity: AppCompatActivity(){
         basicDemoBtn=findViewById(R.id.basic_agc)
 
         basicDemoBtn.setOnClickListener(View.OnClickListener {
-
-//           Utils.startFlavorActivity(this,"com.hms.accountkit","BasicLoginActivity")
-
-            var currentIntent: Intent
             var kotlinClass: KClass<*>?=null
             if(Utils.isHmsorGms(this)){
                 kotlinClass=CallClassMethods.getKotlinClass(AccountConst.HBasicLoginActivity_PATH)
-
             } else
             {
                 kotlinClass=CallClassMethods.getKotlinClass(AccountConst.GBasicLoginActivity_PATH)

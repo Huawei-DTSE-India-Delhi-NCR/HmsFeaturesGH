@@ -4,21 +4,26 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import com.hms.availabletoalllbraries.SingletonHolder
+import com.hms.availabletoalllbraries.utils.Utils
 import com.huawei.hms.analytics.HiAnalytics
 import com.huawei.hms.analytics.HiAnalyticsInstance
 import com.huawei.hms.analytics.HiAnalyticsTools
 import com.huawei.hms.analytics.type.HAEventType
 import com.huawei.hms.analytics.type.HAParamType
 
-class HAnalytics(context: Context){
-
+class HAnalytics(){
     var hiAnalyticsInstance: HiAnalyticsInstance
-    val cContext=context
+
+    constructor(context: Context) : this() {
+      cContext=context
+    }
+
 
     companion object{
         lateinit var analyticsInstance : HAnalytics
-
+        lateinit var cContext: Context
         fun initialise(context: Context) {
+            cContext=context
             Log.d("HHH","GOT it HMS")
             analyticsInstance=SingletonHolder<HAnalytics, Context>(::HAnalytics).getInstance(context)
         }
@@ -29,7 +34,7 @@ class HAnalytics(context: Context){
 
         // Enable Analytics Kit Log
         HiAnalyticsTools.enableLog()
-       hiAnalyticsInstance = HiAnalytics.getInstance(context)
+       hiAnalyticsInstance = HiAnalytics.getInstance(cContext)
 
         // Enable collection capability
        hiAnalyticsInstance.setAnalyticsEnabled(true)
@@ -40,6 +45,7 @@ class HAnalytics(context: Context){
 
     fun logEvent(eventName: String?, bundle: Bundle?) {
         hiAnalyticsInstance.onEvent(eventName, bundle)
+        Utils.showMessage(eventName!!, cContext)
 
     }
 
@@ -61,14 +67,29 @@ class HAnalytics(context: Context){
         bundle.putString(HAParamType.PLACEID,"19/06/2020")
         hiAnalyticsInstance.onEvent(HAEventType.ADDPRODUCT2CART, bundle)
 
+        Utils.showMessage(
+            HAParamType.PRODUCTID + ": " + 12121 + "\n" + HAParamType.PRODUCTNAME + ":" + "Polo Shirt"
+                    + "\n" + HAParamType.PRODUCTNAME + ":" + "Polo Shirt"+"\n"+ HAParamType.PRODUCTFEATURE+":"+"Polo"
+                    + "\n" + HAParamType.BRAND + ":" + "Polo Shirt"+"\n"+ HAParamType.CATEGORY+":"+"Shirts"
+                    + "\n" + HAParamType.STORENAME + ":" + "Hoyo"+"\n"+ HAParamType.QUANTITY+":"+"1"
+                    + "\n" + HAParamType.PRICE + ":" + "1231"+"\n"+ HAParamType.REVENUE+":"+"12"
+                    + "\n" + HAParamType.CURRNAME + ":" + "ABCD"+"\n"+ HAParamType.PLACEID+":"+"19/06/2020",
+                    cContext
+
+        )
+
     }
 
     /**
      * User custom id
      */
     fun sendUserInfo(){
+        Log.d("HHH","User Details sent")
         hiAnalyticsInstance.setUserProfile(HAParamType.USERGROUPID, "12133")
+        Utils.showMessage(HAParamType.USERGROUPID+": "+12133,context = cContext )
     }
+
+
 
 
 

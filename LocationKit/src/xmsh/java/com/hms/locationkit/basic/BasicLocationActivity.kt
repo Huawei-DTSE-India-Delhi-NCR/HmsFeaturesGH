@@ -7,9 +7,10 @@ import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
 import com.hms.availabletoalllbraries.BaseActivity
 import com.hms.locationkit.R
-import com.hms.locationkit.ai.LocationActivityService
 import com.hms.locationkit.utils.CusLocationProvider
 import com.hms.locationkit.utils.LocationUpdates
+import com.huawei.hms.api.Api
+import com.huawei.hms.location.LocationServices
 import kotlinx.android.synthetic.main.basic_location_activity.*
 
 
@@ -32,6 +33,7 @@ class BasicLocationActivity: BaseActivity(true),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
         setContentView(R.layout.basic_location_activity)
         supportActionBar?.title="Location Updates"

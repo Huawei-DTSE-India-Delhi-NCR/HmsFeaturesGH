@@ -24,14 +24,12 @@ class AnalyticsMainActivity : BaseActivity(true) {
     fun userEvents(view:View)
     {
         analyticsInstance.sendUserInfo()
-        Toast.makeText(this,"User Info Event is sent",Toast.LENGTH_LONG).show()
     }
 
 
     fun preDefinedEvent(view:View)
     {
         analyticsInstance.logPreDefinedEvent()
-        Toast.makeText(this,"Pre Defined Event is sent",Toast.LENGTH_LONG).show()
     }
 
 
@@ -44,7 +42,6 @@ class AnalyticsMainActivity : BaseActivity(true) {
         bundle.putString("CONTENT_TYPE", "HMS")
         analyticsInstance.logEvent("SELECT_ITEM", bundle)
 
-        Toast.makeText(this,"Custom Event is sent",Toast.LENGTH_LONG).show()
     }
 
 

@@ -35,11 +35,19 @@ class CallClassMethods {
         }
 
         /**
+         *
+         */
+        fun getObjectInstance(kotlinClass: KClass<*>) : Any?
+        {
+            return kotlinClass.createInstance()
+        }
+
+        /**
          * Call normal function
          */
-        fun callFunction(kotlinClass: KClass<*>, funcName: String):KFunction<*> {
+        fun  callFunction(kotlinClass: KClass<*>, funcName: String):KFunction<*> {
           //  val instance=kotlinClass.createInstance()
-            return kotlinClass.functions.first { it.name == funcName }
+            return kotlinClass.declaredFunctions.first { it.name == funcName }
         }
 
         /**

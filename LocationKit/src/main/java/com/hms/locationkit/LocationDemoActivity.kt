@@ -12,9 +12,6 @@ import androidx.core.app.ActivityCompat
 import com.hms.availabletoalllbraries.BaseActivity
 import com.hms.availabletoalllbraries.reflections.CallClassMethods
 import com.hms.availabletoalllbraries.utils.Utils
-import com.hms.locationkit.ai.LocationActivityService
-import com.hms.locationkit.basic.BasicLocationActivity
-import com.hms.locationkit.geofence.GeofenceActivity
 import com.hms.locationkit.utils.LocationConst
 import kotlin.reflect.KClass
 

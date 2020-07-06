@@ -8,20 +8,20 @@ import com.hms.availabletoalllbraries.SingletonHolder
 
 class GAnalytics(var context: Context){
 
-    private lateinit var firebaseAnalytics: FirebaseAnalytics
+
 
     companion object{
-        lateinit var analyticsInstance : HAnalytics
+        private lateinit var firebaseAnalytics: FirebaseAnalytics
+        private lateinit var gAnalytics: GAnalytics
 
         fun initialise(context: Context) {
             Log.d("HHH","GOT it GMS")
-            analyticsInstance= SingletonHolder<HAnalytics, Context>(::HAnalytics).getInstance(context)
+            gAnalytics= SingletonHolder<GAnalytics, Context>(::GAnalytics).getInstance(context)
         }
     }
 
     init {
         firebaseAnalytics= FirebaseAnalytics.getInstance(context)
-
         // Enable collection capability
         firebaseAnalytics.setAnalyticsCollectionEnabled(true)
 

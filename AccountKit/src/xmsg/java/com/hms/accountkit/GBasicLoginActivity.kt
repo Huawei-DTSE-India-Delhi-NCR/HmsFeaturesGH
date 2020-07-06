@@ -20,7 +20,7 @@ class GBasicLoginActivity : BaseActivity(true) {
 
     companion object{
         fun newStartActivity(context: Context){
-            context.startActivity(Intent(context,HBasicLoginActivity::class.java))
+            context.startActivity(Intent(context,GBasicLoginActivity::class.java))
 
         }
     }

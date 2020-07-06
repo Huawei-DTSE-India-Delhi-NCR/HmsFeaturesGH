@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hms.parnoramakit">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application>
+        <activity android:name=".PanoramaDemoActivity"/>
+        <activity android:name=".LoadImageGetInfoActivity"/>
+        <activity android:name=".LoadImageWithoutTypeActivity"/>
+        <activity android:name=".LocalInterfaceActivity"/>
+        <activity android:name=".PanoramicVideoActivity"/>
+
+
+    </application>
+</manifest>

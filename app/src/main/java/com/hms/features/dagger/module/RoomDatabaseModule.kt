@@ -62,9 +62,16 @@ class RoomDatabaseModule(application: Application) {
             arrarList[2].toString(),
             arrarList[3].toString())
 
+        arrarList=hmsApplication.resources.getStringArray(R.array.panorama_kit)
+        val fPanorama = FeatureEntity(5,
+            arrarList[0].toString(),
+            arrarList[1].toString(),
+            arrarList[2].toString(),
+            arrarList[3].toString())
+
         arrarList=hmsApplication.resources.getStringArray(R.array.push_kit)
 
-        val fPush = FeatureEntity(5,
+        val fPush = FeatureEntity(6,
             arrarList[0].toString(),
             arrarList[1].toString(),
             arrarList[2].toString(),
@@ -72,14 +79,14 @@ class RoomDatabaseModule(application: Application) {
 
 
         arrarList=hmsApplication.resources.getStringArray(R.array.ads_kit)
-        val fAds = FeatureEntity(6,
+        val fAds = FeatureEntity(7,
             arrarList[0].toString(),
             arrarList[1].toString(),
             arrarList[2].toString(),
             arrarList[3].toString())
 
         arrarList=hmsApplication.resources.getStringArray(R.array.ml_kit)
-        val fMl = FeatureEntity(7,
+        val fMl = FeatureEntity(8,
             arrarList[0].toString(),
             arrarList[1].toString(),
             arrarList[2].toString(),
@@ -98,6 +105,7 @@ class RoomDatabaseModule(application: Application) {
         featureDAO.addFeature(fAds)
         featureDAO.addFeature(fPush)
         featureDAO.addFeature(fMl)
+        featureDAO.addFeature(fPanorama)
     }
 
     @Singleton

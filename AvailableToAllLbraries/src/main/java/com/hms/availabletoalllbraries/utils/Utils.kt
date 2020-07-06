@@ -2,6 +2,7 @@ package com.hms.availabletoalllbraries.utils
 
 import android.content.Context
 import android.content.Intent
+import android.widget.Toast
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 
@@ -32,6 +33,10 @@ class Utils {
         }*/
 
 
+        fun showMessage(message: String, context: Context)
+        {
+            Toast.makeText(context,message,Toast.LENGTH_LONG).show()
+        }
 
 
 

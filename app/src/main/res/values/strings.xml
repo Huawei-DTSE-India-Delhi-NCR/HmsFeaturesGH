@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Hms Features</string>
 
 
@@ -73,6 +73,18 @@
             \n\n 3. Vision - \n \t\t Image classification, \n \t\t Object detection and tracking, \n \t\t Landmark recognition, \n \t\t Image segmentation, \n \t\t Product visual search
             \n\n 4. Face &amp; Body - \n \t\t Face detection</item>
     </string-array>
+
+    <string-array name="panorama_kit">
+        <item>Panorama Kit</item>
+        <item>panorama_kit</item>
+        <item>Use a full range of vision and language APIs to build your own AI apps, even if you are not a machine learning expert.</item>
+        <item>1. Panorama modes - \n \t\t Provides 360° sphere, partial 360° sphere, and cylindrical/ring views.
+            \n\n 2. Display modes - \n \t\t Supports image display in full screen outside your app or on a new layer within your app.
+            \n\n 3. File formats - \n \t\t Supports JPG, JPEG, and PNG images.
+            \n\n 4. Control options - \n \t\t Allows users to swipe the screen or rotate the phone while adjusting the view.
+            \n\n 5. Panoramic video - \n \t\t Supports 360º video display and switchover between panoramic videos and images.</item>
+    </string-array>
+
 
 
 </resources>

@@ -203,7 +203,6 @@ class InteractingMapsActivity :BaseActivity(true), OnMapReadyCallback, HuaweiMap
         val geocoder = Geocoder(this, Locale.ENGLISH)
         val addresses: List<Address> =
             geocoder.getFromLocation(latLng.latitude, latLng.latitude, 1)
-        if(addresses!=null) {
             Toast.makeText(
                 this, addresses[0]?.getLocality()?.toString() + ", "
                         + addresses[0]?.getAdminArea() + ", "
@@ -212,8 +211,7 @@ class InteractingMapsActivity :BaseActivity(true), OnMapReadyCallback, HuaweiMap
             return (addresses[0]?.getLocality()?.toString() + ", "
                     + addresses[0]?.getAdminArea() + ", "
                     + addresses[0]?.getCountryName())
-        }
-        return "Not found"
+
     }
 
      private fun hasPermissions(context: Context): Boolean {

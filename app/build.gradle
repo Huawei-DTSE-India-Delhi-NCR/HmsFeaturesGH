@@ -96,6 +96,7 @@ dependencies {
     implementation project(path: ':LocationKit')
     implementation project(path: ':PushKit')
     implementation project(path: ':Adskit')
+    implementation project(path: ':ParnoramaKit')
 
 
     def room_version = "2.2.1"

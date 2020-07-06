@@ -12,6 +12,7 @@ import com.hms.locationkit.R
 import com.hms.locationkit.geofence.GeofenceActivity
 import com.huawei.hmf.tasks.OnFailureListener
 import com.huawei.hmf.tasks.OnSuccessListener
+import com.huawei.hms.api.HuaweiApiClient
 import com.huawei.hms.location.ActivityConversionInfo
 import com.huawei.hms.location.ActivityConversionRequest
 import com.huawei.hms.location.ActivityIdentification

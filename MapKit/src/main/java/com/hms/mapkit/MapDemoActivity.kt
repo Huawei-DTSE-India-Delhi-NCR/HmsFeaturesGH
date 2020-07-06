@@ -6,7 +6,6 @@ import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
 import com.hms.availabletoalllbraries.BaseActivity
 import com.hms.availabletoalllbraries.reflections.CallClassMethods
-import com.hms.mapkit.routemap.RouteMapActivity
 import com.hms.mapkit.utils.MapsConst
 
 class MapDemoActivity: BaseActivity(true) {

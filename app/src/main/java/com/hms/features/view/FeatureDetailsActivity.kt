@@ -15,6 +15,7 @@ import com.hms.features.utils.CONSTANTS
 import com.hms.features.utils.Utils
 import com.hms.locationkit.LocationDemoActivity
 import com.hms.mapkit.MapDemoActivity
+import com.hms.parnoramakit.PanoramaDemoActivity
 import com.hms.pushkit.PushDemoActivity
 
 class FeatureDetailsActivity: AppCompatActivity() {
@@ -79,7 +80,9 @@ class FeatureDetailsActivity: AppCompatActivity() {
                 when(type)
                 {
                     "map_kit"->{
-                        startActivity(Intent(this@FeatureDetailsActivity,MapDemoActivity::class.java))
+                       startActivity(Intent(this@FeatureDetailsActivity,MapDemoActivity::class.java))
+
+
 
                     }
 
@@ -105,6 +108,11 @@ class FeatureDetailsActivity: AppCompatActivity() {
 
                     "ads_kit"->{
                         startActivity(Intent(this@FeatureDetailsActivity,AdsDemoActivity::class.java))
+
+                    }
+
+                    "panorama_kit"->{
+                        startActivity(Intent(this@FeatureDetailsActivity,PanoramaDemoActivity::class.java))
 
                     }
 
