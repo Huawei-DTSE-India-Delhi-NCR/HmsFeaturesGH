@@ -21,8 +21,6 @@ class MapDemoActivity: BaseActivity(true) {
         basicDemoBtn=findViewById(R.id.basic_map)
 
         basicDemoBtn.setOnClickListener(View.OnClickListener {
-
-//            startActivity(Intent(this,MapActivity::class.java))
             CallClassMethods.moveToNewActivity(MapsConst.MapActivity_PATH, MapsConst.newStartActivity_METHOD, this)
         })
 

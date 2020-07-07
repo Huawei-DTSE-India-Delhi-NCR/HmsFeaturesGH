@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.hms.availabletoalllbraries.utils.Utils
 import com.huawei.hmf.tasks.Task
 import com.huawei.hms.common.ApiException
 import com.huawei.hms.support.hwid.HuaweiIdAuthManager
@@ -70,11 +71,12 @@ class HBasicLoginActivity: AppCompatActivity() {
                 val huaweiAccount: AuthHuaweiId = authHuaweiIdTask.getResult()
                 Log.i(TAG, "signIn success " + huaweiAccount.displayName)
 
+                Utils.ACCESS_TOKEN=huaweiAccount.accessToken
+
                 status_details.text="Name: "+huaweiAccount.displayName + "\n"+
                                     "Email: "+huaweiAccount.email+ "\n"
                                    /* "Image Url: "+huaweiAccount.avatarUriString+ "\n"+
                                     "Id Token: "+huaweiAccount.idToken*/
-
             } else {
                 Log.i(TAG,"signIn failed: " + (authHuaweiIdTask.getException() as ApiException).statusCode
                 )

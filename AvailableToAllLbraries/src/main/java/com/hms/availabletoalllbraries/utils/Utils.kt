@@ -11,6 +11,8 @@ class Utils {
 
     companion object{
 
+        var ACCESS_TOKEN: String?=null
+
 
         fun isHmsorGms(context: Context): Boolean
         {

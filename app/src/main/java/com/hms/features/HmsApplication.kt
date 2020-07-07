@@ -1,8 +1,6 @@
 package com.hms.features
 
 import android.app.Application
-import com.hms.adskit.CommonAds
-import com.hms.analyticskit.HAnalytics
 import com.hms.analyticskit.utils.AnalyticsKit
 import com.hms.features.dagger.component.DaggerHmsComponent
 import com.hms.features.dagger.component.HmsComponent
@@ -33,6 +31,6 @@ class HmsApplication : Application() {
     private fun initialiseLibraries()
     {
         AnalyticsKit.initialise(this)
-        CommonAds.initialise(this)
+       // CommonAds.initialise(this)
     }
 }

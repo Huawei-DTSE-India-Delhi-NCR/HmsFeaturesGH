@@ -1,7 +1,8 @@
 package com.hms.features.utils
 
 import android.os.Bundle
-import com.hms.analyticskit.HAnalytics
+import com.hms.analyticskit.utils.AnalyticsKit
+
 
 class AppEvents {
 
@@ -15,7 +16,7 @@ class AppEvents {
 
                 bundle.putString("$key","$value")
             }
-            HAnalytics.analyticsInstance.logEvent(eventName, bundle)
+            AnalyticsKit.analyticsInstance.logEvent(eventName, bundle)
            // bundle.clear()
         }
 
