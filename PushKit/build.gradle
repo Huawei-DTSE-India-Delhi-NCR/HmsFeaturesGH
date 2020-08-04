@@ -76,7 +76,7 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.1'
 
 
-    xmshImplementation 'com.huawei.hms:push:4.0.4.301'
-    xmsghImplementation 'com.huawei.hms:push:4.0.4.301'
+    xmshImplementation 'com.huawei.hms:push:5.0.0.300'
+    xmsghImplementation 'com.huawei.hms:push:5.0.0.300'
 
 }

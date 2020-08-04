@@ -70,7 +70,7 @@ class GeofenceActivity: BaseActivity(true)
      * Create new PendingIntent.
      */
     private fun getPendingIntent(): PendingIntent? {
-//The GeoFenceBroadcastReceiver class is a custom static broadcast class. For detailed implementation methods, refer to the sample code.
+//The GeoFenceBroadcastReceiver class is a custom static broadcast class. For detailed implementation methods, refer to the com.mlkit.com.mlkit.sample code.
         val intent = Intent(this, GeoFenceBroadcastReceiver::class.java)
         intent.action = GeoFenceBroadcastReceiver.ACTION_PROCESS_LOCATION
         return PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)

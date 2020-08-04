@@ -40,19 +40,21 @@ class RoomDatabaseModule(application: Application) {
             arrarList[2].toString(),
             arrarList[3].toString())
 
-        arrarList=hmsApplication.resources.getStringArray(R.array.location_kit)
-        val fLocation = FeatureEntity(2,
+        arrarList=hmsApplication.resources.getStringArray(R.array.push_kit)
+        val fPush = FeatureEntity(2,
             arrarList[0].toString(),
             arrarList[1].toString(),
             arrarList[2].toString(),
             arrarList[3].toString())
 
-        arrarList=hmsApplication.resources.getStringArray(R.array.map_kit)
-        val fMap = FeatureEntity(3,
+        arrarList=hmsApplication.resources.getStringArray(R.array.panorama_kit)
+        val fPanorama = FeatureEntity(3,
             arrarList[0].toString(),
             arrarList[1].toString(),
             arrarList[2].toString(),
             arrarList[3].toString())
+
+
 
 
         arrarList=hmsApplication.resources.getStringArray(R.array.analytics_kit)
@@ -62,31 +64,41 @@ class RoomDatabaseModule(application: Application) {
             arrarList[2].toString(),
             arrarList[3].toString())
 
-        arrarList=hmsApplication.resources.getStringArray(R.array.panorama_kit)
-        val fPanorama = FeatureEntity(5,
-            arrarList[0].toString(),
-            arrarList[1].toString(),
-            arrarList[2].toString(),
-            arrarList[3].toString())
-
-        arrarList=hmsApplication.resources.getStringArray(R.array.push_kit)
-
-        val fPush = FeatureEntity(6,
-            arrarList[0].toString(),
-            arrarList[1].toString(),
-            arrarList[2].toString(),
-            arrarList[3].toString())
-
-
         arrarList=hmsApplication.resources.getStringArray(R.array.ads_kit)
-        val fAds = FeatureEntity(7,
+        val fAds = FeatureEntity(5,
             arrarList[0].toString(),
             arrarList[1].toString(),
             arrarList[2].toString(),
             arrarList[3].toString())
+
+
+
+        arrarList=hmsApplication.resources.getStringArray(R.array.map_kit)
+        val fMap = FeatureEntity(6,
+            arrarList[0].toString(),
+            arrarList[1].toString(),
+            arrarList[2].toString(),
+            arrarList[3].toString())
+
+
+
+        arrarList=hmsApplication.resources.getStringArray(R.array.location_kit)
+        val fLocation = FeatureEntity(7,
+            arrarList[0].toString(),
+            arrarList[1].toString(),
+            arrarList[2].toString(),
+            arrarList[3].toString())
+
 
         arrarList=hmsApplication.resources.getStringArray(R.array.ml_kit)
         val fMl = FeatureEntity(8,
+            arrarList[0].toString(),
+            arrarList[1].toString(),
+            arrarList[2].toString(),
+            arrarList[3].toString())
+
+        arrarList=hmsApplication.resources.getStringArray(R.array.scan_kit)
+        val fScan = FeatureEntity(9,
             arrarList[0].toString(),
             arrarList[1].toString(),
             arrarList[2].toString(),
@@ -106,6 +118,7 @@ class RoomDatabaseModule(application: Application) {
         featureDAO.addFeature(fPush)
         featureDAO.addFeature(fMl)
         featureDAO.addFeature(fPanorama)
+        featureDAO.addFeature(fScan)
     }
 
     @Singleton

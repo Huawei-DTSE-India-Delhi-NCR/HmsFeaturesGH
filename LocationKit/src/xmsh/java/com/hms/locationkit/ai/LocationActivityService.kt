@@ -82,7 +82,7 @@ class LocationActivityService: BaseActivity(true) {
     }
 
     private fun getPendingIntent(): PendingIntent? {
-        //The LocationBroadcastReceiver class is a custom class. For detailed implementation methods, please refer to the sample code.
+        //The LocationBroadcastReceiver class is a custom class. For detailed implementation methods, please refer to the com.mlkit.com.mlkit.sample code.
 
         val filter = IntentFilter()
         /*filter.addAction("service.to.activity.transfer")

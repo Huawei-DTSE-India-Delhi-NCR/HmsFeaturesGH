@@ -15,11 +15,16 @@
             <option value="$PROJECT_DIR$/Adskit" />
             <option value="$PROJECT_DIR$/AnalyticsKit" />
             <option value="$PROJECT_DIR$/AvailableToAllLbraries" />
+            <option value="$PROJECT_DIR$/CrashService" />
+            <option value="$PROJECT_DIR$/LandmarkLocations" />
             <option value="$PROJECT_DIR$/LocationKit" />
             <option value="$PROJECT_DIR$/MLKit" />
+            <option value="$PROJECT_DIR$/MLText" />
             <option value="$PROJECT_DIR$/MapKit" />
             <option value="$PROJECT_DIR$/ParnoramaKit" />
+            <option value="$PROJECT_DIR$/PlacesNearby" />
             <option value="$PROJECT_DIR$/PushKit" />
+            <option value="$PROJECT_DIR$/ScanKit" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

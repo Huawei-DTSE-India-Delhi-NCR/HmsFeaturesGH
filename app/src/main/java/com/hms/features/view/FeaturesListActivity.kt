@@ -1,12 +1,13 @@
 package com.hms.features.view
 
+import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
@@ -20,6 +21,7 @@ import com.hms.features.databinding.ActivityFeatureListBinding
 import com.hms.features.viewmodel.FeatureListViewModel
 import kotlinx.android.synthetic.main.activity_feature_list.*
 import javax.inject.Inject
+
 
 class FeaturesListActivity : AppCompatActivity() {
 
@@ -52,6 +54,15 @@ class FeaturesListActivity : AppCompatActivity() {
         setBinding()
 
         observeViewModel()
+
+
+
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+
+
     }
 
     private fun createViewModel() {
@@ -84,7 +95,7 @@ class FeaturesListActivity : AppCompatActivity() {
         binding.clickHandlers = clickHandlers
         setContentView(binding.root)
 
-        binding.vpBanners.adapter=FeaturesViewPagerAdapter(this,3)
+        binding.vpBanners.adapter=FeaturesViewPagerAdapter(this,2)
         binding.vpBanners.registerOnPageChangeCallback(vpPageChangeCallback)
 
     }
@@ -151,18 +162,18 @@ class FeaturesListActivity : AppCompatActivity() {
             0 -> {
                 binding.vpFirstCircle.background = getDrawable(R.drawable.bg_green_circle)
                 binding.vpSecondCircle.background = getDrawable(R.drawable.bg_grey_circle)
-                binding.vpThirdCircle.background = getDrawable(R.drawable.bg_grey_circle)
+            //    binding.vpThirdCircle.background = getDrawable(R.drawable.bg_grey_circle)
             }
             1 -> {
                 binding.vpFirstCircle.background = getDrawable(R.drawable.bg_grey_circle)
                 binding.vpSecondCircle.background = getDrawable(R.drawable.bg_green_circle)
-                binding.vpThirdCircle.background = getDrawable(R.drawable.bg_grey_circle)
+              //  binding.vpThirdCircle.background = getDrawable(R.drawable.bg_grey_circle)
             }
-            2 -> {
+            /*2 -> {
                 binding.vpFirstCircle.background = getDrawable(R.drawable.bg_grey_circle)
                 binding.vpSecondCircle.background = getDrawable(R.drawable.bg_grey_circle)
                 binding.vpThirdCircle.background = getDrawable(R.drawable.bg_green_circle)
-            }
+            }*/
         }
     }
 }

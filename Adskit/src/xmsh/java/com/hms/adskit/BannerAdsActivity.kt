@@ -7,7 +7,7 @@ import com.huawei.hms.ads.AdParam
 import com.huawei.hms.ads.BannerAdSize
 import com.huawei.hms.ads.HwAds
 import com.huawei.hms.ads.banner.BannerView
-import kotlinx.android.synthetic.xmsgh.banner_layout.*
+import kotlinx.android.synthetic.xmsh.banner_layout.*
 
 
 class BannerAdsActivity : BaseActivity(true) {

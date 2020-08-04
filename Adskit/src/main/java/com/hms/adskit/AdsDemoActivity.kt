@@ -14,16 +14,27 @@ class AdsDemoActivity: BaseActivity(true) {
         setContentView(R.layout.ads_demo_activity)
         supportActionBar?.title=getString(R.string.ads_kit_features)
 
-
-
     }
 
 
     fun bannerAdsActivity(view:View)
     {
-      //  startActivity(Intent(this,BannerAdsActivity::class.java))
+        startActivity(Intent(this,BannerAdsActivity::class.java))
 
     }
+
+    fun splashAdsActivity(view:View)
+    {
+        startActivity(Intent(this,SplashAdsActivity::class.java))
+
+    }
+
+    fun rewardAdsActivity(view:View)
+    {
+        startActivity(Intent(this,RewardAdsActivity::class.java))
+
+    }
+
 
 
 }

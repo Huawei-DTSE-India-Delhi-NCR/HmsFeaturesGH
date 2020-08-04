@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.hms.accountkit.LoginDemoActivity
 import com.hms.adskit.AdsDemoActivity
 import com.hms.analyticskit.AnalyticsMainActivity
+import com.hms.analyticskit.utils.AnalyticsKit
+import com.hms.crashservice.CrashServiceActivity
 import com.hms.features.database.entity.FeatureEntity
 import com.hms.features.databinding.FeatureDetailsActivityBinding
 import com.hms.features.utils.AppEvents
@@ -15,8 +17,12 @@ import com.hms.features.utils.CONSTANTS
 import com.hms.features.utils.Utils
 import com.hms.locationkit.LocationDemoActivity
 import com.hms.mapkit.MapDemoActivity
+import com.hms.mlkit.MLActivity
 import com.hms.parnoramakit.PanoramaDemoActivity
+import com.hms.placesnearby.NearbyPlacesActivity
 import com.hms.pushkit.PushDemoActivity
+import com.hms.scankit.ScanKitDemoActivity
+import com.huawei.agconnect.crash.AGConnectCrash
 
 class FeatureDetailsActivity: AppCompatActivity() {
 
@@ -80,10 +86,12 @@ class FeatureDetailsActivity: AppCompatActivity() {
                 when(type)
                 {
                     "map_kit"->{
+//                        AGConnectCrash.getInstance().enableCrashCollection(true)
+//                        AGConnectCrash.getInstance().testIt(this@FeatureDetailsActivity)
+
                        startActivity(Intent(this@FeatureDetailsActivity,MapDemoActivity::class.java))
 
-
-
+//                        startActivity(Intent(this@FeatureDetailsActivity,NearbyPlacesActivity::class.java))
                     }
 
                     "analytics_kit"->{
@@ -93,31 +101,33 @@ class FeatureDetailsActivity: AppCompatActivity() {
 
                     "account_kit"->{
                         startActivity(Intent(this@FeatureDetailsActivity,LoginDemoActivity::class.java))
-
+                        finish()
                     }
 
                     "location_kit"->{
                         startActivity(Intent(this@FeatureDetailsActivity,LocationDemoActivity::class.java))
-
                     }
 
                     "push_kit"->{
                         startActivity(Intent(this@FeatureDetailsActivity,PushDemoActivity::class.java))
-
                     }
 
                     "ads_kit"->{
                         startActivity(Intent(this@FeatureDetailsActivity,AdsDemoActivity::class.java))
-
                     }
 
                     "panorama_kit"->{
                         startActivity(Intent(this@FeatureDetailsActivity,PanoramaDemoActivity::class.java))
-
                     }
 
-                }
+                    "scan_kit"->{
+                        startActivity(Intent(this@FeatureDetailsActivity,ScanKitDemoActivity::class.java))
+                    }
 
+                    "ml_kit"->{
+                        startActivity(Intent(this@FeatureDetailsActivity,MLActivity::class.java))
+                    }
+                }
         }
 
 

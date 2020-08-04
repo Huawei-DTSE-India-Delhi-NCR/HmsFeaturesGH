@@ -1,0 +1,77 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hms.mltext">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="com.huawei.mlkit.asr.permission" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <!--<permission
+        android:name="com.hms.features.permission"
+        android:label="ASR" />-->
+
+    <application>
+        <activity android:name="com.mlkit.sampletext.activity.TranslateActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"></activity>
+        <activity android:name="com.mlkit.sampletext.activity.TtsAudioActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"/>
+
+        <activity
+            android:name="com.mlkit.sampletext.activity.StartTextActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mlkit.sampletext.activity.TextRecognitionActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.mlkit.sampletext.activity.RemoteTextDetectionActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:exported="true" />
+        <activity
+            android:name="com.mlkit.sampletext.activity.SettingActivity"
+            android:exported="true" />
+        <activity android:name="com.mlkit.sampletext.activity.RemoteTranslateActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"/>
+        <activity android:name="com.mlkit.sampletext.activity.LocalTranslateActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"></activity>
+        <activity android:name="com.mlkit.sampletext.activity.AsrAudioActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"/>
+        <activity
+            android:name="com.mlkit.sampletext.activity.IDCardRecognitionActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
+        <activity
+            android:name="com.mlkit.sampletext.activity.GeneralCardRecognitionActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
+        <activity
+            android:name="com.mlkit.sampletext.activity.BankCardRecognitionActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
+        <activity android:name="com.mlkit.sampletext.activity.AudioFileTranscriptionActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/apk_file_provider" />
+        </provider>
+
+        <meta-data
+            android:name="com.huawei.hms.ml.DEPENDENCY"
+            android:value="object,ocr,face,label,icr,imgseg,translate,langdetect" />
+    </application>
+</manifest>

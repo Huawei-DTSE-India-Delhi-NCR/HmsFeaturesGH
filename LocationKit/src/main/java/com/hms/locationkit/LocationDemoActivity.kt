@@ -1,8 +1,6 @@
 package com.hms.locationkit
 
 import android.Manifest
-import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -11,16 +9,11 @@ import android.view.View
 import androidx.core.app.ActivityCompat
 import com.hms.availabletoalllbraries.BaseActivity
 import com.hms.availabletoalllbraries.reflections.CallClassMethods
-import com.hms.availabletoalllbraries.utils.Utils
 import com.hms.locationkit.utils.LocationConst
-import kotlin.reflect.KClass
 
 class LocationDemoActivity: BaseActivity(true) {
 
-
-
     val TAG = "LocationUpdatesCallback"
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +22,8 @@ class LocationDemoActivity: BaseActivity(true) {
         supportActionBar?.title=getString(R.string.location_kit_features)
 
         checkPermissions()
+
+
 
     }
 

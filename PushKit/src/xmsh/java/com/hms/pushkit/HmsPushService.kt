@@ -1,8 +1,10 @@
 package com.hms.pushkit
 
 import android.util.Log
+import android.widget.Toast
 import com.huawei.hms.push.HmsMessageService
 import com.huawei.hms.push.RemoteMessage
+import java.lang.Exception
 import java.util.*
 
 class HmsPushService: HmsMessageService() {
@@ -14,6 +16,27 @@ class HmsPushService: HmsMessageService() {
         Log.i(TAG, "receive token:$token");
 
     }
+
+    override fun onTokenError(p0: Exception?) {
+        super.onTokenError(p0)
+        Log.d("PUSH_TOKEN_ERROR", p0?.message)
+
+    }
+
+    override fun onMessageDelivered(p0: String?, p1: Exception?) {
+        super.onMessageDelivered(p0, p1)
+
+        Log.d("PUSH_DELIVERED", p0)
+
+    }
+
+    override fun onMessageSent(p0: String?) {
+        super.onMessageSent(p0)
+        Log.d("PUSH_SENT", p0)
+
+    }
+
+
 
     override fun onMessageReceived(message: RemoteMessage?) {
         super.onMessageReceived(message)
@@ -28,6 +51,8 @@ class HmsPushService: HmsMessageService() {
                     + "\n getMessageType: " + message.getMessageType()
                     + "\n getTtl: " + message.getTtl())
         };
+
+        Toast.makeText(this,message?.data,Toast.LENGTH_LONG).show()
 
         var notification: RemoteMessage.Notification? = message?.getNotification();
         if (notification != null) {

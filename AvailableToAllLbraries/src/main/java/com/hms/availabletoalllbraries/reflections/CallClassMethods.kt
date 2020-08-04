@@ -1,6 +1,8 @@
 package com.hms.availabletoalllbraries.reflections
 
 import android.content.Context
+import android.util.Log
+import java.lang.Exception
 import java.lang.reflect.Constructor
 import java.lang.reflect.Method
 import java.lang.reflect.Modifier
@@ -18,6 +20,12 @@ class CallClassMethods {
             return cls.kotlin
         }
 
+        fun getJavaClass(classPath: String): Class<*>
+        {
+            val cls = Class.forName(classPath)
+            return cls
+        }
+
         /**
          * Call companion function
          */
@@ -27,11 +35,27 @@ class CallClassMethods {
         }
 
         /**
+         * Call companion function
+         */
+        fun callCompanionJavaFunction(javaClass: Class<*>, funcName: String):Method {
+
+            return javaClass.methods.first { it.name==funcName }
+        }
+
+        /**
          *
          */
         fun getCompanionObjectInstance(kotlinClass: KClass<*>) : Any?
         {
             return kotlinClass.companionObjectInstance
+        }
+
+        /**
+         *
+         */
+        fun getJavaCompanionObjectInstance(kotlinClass: Class<*>) : Any?
+        {
+            return kotlinClass.newInstance()
         }
 
         /**
@@ -62,18 +86,32 @@ class CallClassMethods {
 
         fun moveToNewActivity(pathName: String, methodName: String, context: Context)
         {
-            var kotlinClass: KClass<*>?=null
-            kotlinClass=CallClassMethods.getKotlinClass(pathName)
-            callCompanionFunction(kotlinClass!!,methodName)
-                .call(getCompanionObjectInstance(kotlinClass!!), context)
+            try {
+                var kotlinClass: KClass<*>? = null
+                kotlinClass = CallClassMethods.getKotlinClass(pathName)
+                callCompanionFunction(kotlinClass!!, methodName)
+                    .call(getCompanionObjectInstance(kotlinClass!!), context)
+            } catch (ex:Exception)
+            {
+                Log.e("ERROR",ex.message)
+            }
+        }
 
+        fun moveToNewJavaActivity(pathName: String, methodName: String, context: Context)
+        {
+            try {
+                var javaClass: Class<*>? = null
+                javaClass = CallClassMethods.getJavaClass(pathName)
+                javaClass.getDeclaredMethod(methodName,Context::class.java).invoke(null,context)
+             //   callCompanionJavaFunction(javaClass!!, methodName).invoke(null, arrayOf(context))
+            } catch (ex:Exception)
+            {
+                Log.e("ERROR",ex.message)
+            }
         }
 
 
-
-
-
-        }
+    }
 
 
 

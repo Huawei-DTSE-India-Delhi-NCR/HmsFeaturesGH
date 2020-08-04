@@ -26,4 +26,7 @@
    <string name="panorama_kit">ML Kit</string>
    <string name="panorama_kit_features">ML Kit Features</string>
 
+   <string name="scan_kit">Scan Kit</string>
+   <string name="scan_kit_features">Scan Kit Features</string>
+
 </resources>

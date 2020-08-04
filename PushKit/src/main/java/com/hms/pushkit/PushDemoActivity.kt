@@ -50,6 +50,35 @@ class PushDemoActivity:BaseActivity(true) {
         moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.BANDGE)
     }
 
+    fun sendInboxPushNotification(view:View)
+    {
+        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.INBOX_STYLE)
+    }
+
+    fun sendHidePushNotification(view:View)
+    {
+        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.HIDING_LOCK_SCREEN)
+    }
+
+    fun sendButtonsPushNotification(view:View)
+    {
+        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.WITH_BUTTONS)
+    }
+
+    fun sendSilentPushNotification(view:View)
+    {
+        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.SILENT_PUSH)
+    }
+
+    fun sendDeeplinkPushNotification(view:View)
+    {
+        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.DEEP_LINK)
+    }
+
+    fun sendDeeplinkWebPushNotification(view:View)
+    {
+        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.DEEP_LINK_WEB)
+    }
 
     fun moveToPushNewActivity(pathName: String, methodName: String, context: Context, notificationType: NOTIFICATION_TYPE)
     {

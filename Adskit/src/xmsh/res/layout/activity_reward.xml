@@ -20,7 +20,8 @@
         android:layout_below="@+id/text_reward"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Play" />
+        android:text="Play"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/show_video_button"
@@ -29,7 +30,7 @@
         android:layout_below="@+id/play_button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Watch Video" />
+        android:text="Watch video ad to add points" />
 
     <TextView
         android:id="@+id/score_count_text"

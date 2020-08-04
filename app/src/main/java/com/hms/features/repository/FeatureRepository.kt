@@ -13,7 +13,6 @@ class FeatureRepository(hmsDatabase: HmsDatabase) {
     private var featuresDAO: HmsFeatureDAO = hmsDatabase.getFeatureDAO()
 
     fun getFeatures(): LiveData<List<FeatureEntity>> {
-//        return bookDAO.getCategoryBooks(categoryID)
         return featuresDAO.getAllFeatures()
     }
 

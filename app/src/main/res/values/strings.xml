@@ -85,6 +85,18 @@
             \n\n 5. Panoramic video - \n \t\t Supports 360º video display and switchover between panoramic videos and images.</item>
     </string-array>
 
+    <string-array name="scan_kit">
+        <item>Scan Kit</item>
+        <item>scan_kit</item>
+        <item>An in-app scanner and generator for 1D and 2D barcodes connects your app to real-world scenarios</item>
+        <item>1. 13 mainstream formats - \n \t\t Supports QR Code, Data Matrix, PDF417, Aztec, EAN-8, EAN-13, UPC-A, UPC-E, Codabar, Code 39, Code 93, Code 128, and ITF.
+            \n\n 2. Auto zoom - \n \t\t Zooms in to small or distant barcodes.
+            \n\n 3. Structured data extraction - \n \t\t Lets your app quickly identify usage scenarios such as connecting to Wi-Fi or adding a calendar event.
+            \n\n 4. Enhanced recognition - \n \t\t Detects barcodes despite low visibility, glare, damage, distortion, or blur.
+            \n\n 5. Multi-code detection- \n \t\t Processes up to 5 barcodes simultaneously.
+            \n\n 6. QR code generation- \n \t\t Converts your input to the best version and error correction level.</item>
+    </string-array>
+
 
 
 </resources>

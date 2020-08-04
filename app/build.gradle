@@ -97,7 +97,11 @@ dependencies {
     implementation project(path: ':PushKit')
     implementation project(path: ':Adskit')
     implementation project(path: ':ParnoramaKit')
-
+    implementation project(path: ':ScanKit')
+    implementation project(path: ':MLKit')
+    api project(path: ':CrashService')
+    implementation project(path: ':PlacesNearby')
+    implementation project(path: ':LandmarkLocations')
 
     def room_version = "2.2.1"
     def dagger_version = "2.25.2"
@@ -127,10 +131,12 @@ dependencies {
 
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
-
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+//    implementation 'com.huawei.agconnect:agconnect-crash:1.4.0.300'
+//  implementation 'com.huawei.hms:hianalytics:5.0.1.300'
 
 }
 

@@ -23,4 +23,6 @@ abstract class BaseActivity(var isBackRequired: Boolean) : AppCompatActivity() {
         return true
     }
 
+
+
 }

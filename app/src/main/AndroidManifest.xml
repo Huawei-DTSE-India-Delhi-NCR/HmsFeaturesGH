@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.hms.features">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,15 +13,56 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".HmsApplication">
+        android:name=".HmsApplication"
+        tools:replace="android:allowBackup,android:icon">
 
         <activity android:name=".view.FeatureDetailsActivity"/>
-        <activity android:name=".view.FeaturesListActivity">
+
+        <activity android:name=".view.FeaturesListActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+
+
+
             </intent-filter>
+        </activity>
+
+        <activity android:name=".view.DeeplinkActivity"
+            android:launchMode="singleTask">
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="com.hms.features"
+                    android:path="/deeplink"
+                    android:scheme="pushscheme" />
+
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".view.DeeplinkTwoActivity"
+                  android:launchMode="singleTask">
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="com.hms.features"
+                    android:path="/deeplink"
+                    android:scheme="deeplink2" />
+
+            </intent-filter>
+
         </activity>
 
 

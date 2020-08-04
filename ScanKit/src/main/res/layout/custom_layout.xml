@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:my_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#018786">
+
+
+
+    <FrameLayout
+        android:id="@+id/rim"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:background="@drawable/scan_box_style"
+        my_view:layout_constraintTop_toTopOf="parent"
+        my_view:layout_constraintLeft_toLeftOf="parent"
+        my_view:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="30dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/scan_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="350dp"
+        android:minHeight="80dp"
+        android:textColor="#000000"
+        my_view:layout_constraintLeft_toLeftOf="parent"
+        my_view:layout_constraintRight_toRightOf="parent"
+        android:textSize="18sp"
+        android:background="@drawable/rect_dash_border"
+        android:layout_margin="25dp"
+        android:padding="10dp"
+        android:gravity="center"
+        my_view:layout_constraintTop_toBottomOf="@id/rim"
+        />
+
+
+
+    <ImageView
+        android:id="@+id/flush_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:visibility="visible"
+        android:gravity="center"
+        android:src="@drawable/flashlight_off"
+        my_view:layout_constraintLeft_toLeftOf="parent"
+        my_view:layout_constraintTop_toBottomOf="@id/scan_message"
+        android:layout_marginTop="33dp"
+        android:layout_marginLeft="120dp"
+        />
+
+    <ImageView
+        android:id="@+id/img_btn"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:padding="12dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:src="@drawable/photo"
+        my_view:layout_constraintTop_toBottomOf="@id/scan_message"
+        my_view:layout_constraintLeft_toRightOf="@id/flush_btn"
+        android:layout_marginLeft="30dp"
+        />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

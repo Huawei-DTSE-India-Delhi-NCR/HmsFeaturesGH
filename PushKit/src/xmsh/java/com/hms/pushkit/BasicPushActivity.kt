@@ -16,6 +16,7 @@ import com.android.volley.Response
 import com.android.volley.VolleyLog
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.hms.availabletoalllbraries.BaseActivity
 import com.hms.availabletoalllbraries.reflections.CallClassMethods
 import com.hms.availabletoalllbraries.utils.Utils
 import com.hms.pushkit.utils.NOTIFICATION_TYPE
@@ -29,7 +30,7 @@ import java.nio.charset.Charset
 import kotlin.reflect.KClass
 
 
-class BasicPushActivity: AppCompatActivity() {
+class BasicPushActivity: BaseActivity(isBackRequired = true) {
 
 
     companion object{
@@ -79,41 +80,60 @@ class BasicPushActivity: AppCompatActivity() {
 
             var notificationObj=JSONObject().apply {
                 put("title","HMS Feature")
-                put("body","Hello!!!! Hemanth here")}
+                put("body","Hello!!!! Hemanth here")
+                //put("image","https://dummyimage.com/512x256/fff.png")
+            }
 
-            var clickAction=JSONObject().apply { put("type",1)
-                put("intent", "#Intent;compo=com.rvr/.Activity;S.W=U;end")}
+            var clickAction=JSONObject().apply {
+                put("type",1)
+                put("intent", "#Intent;compo=com.rvr/.Activity;S.W=U;end")
+//                put("intent","intent://com.hms.features/deeplink?#Intent;scheme=pushscheme;launchFlags=0x4000000;i.age=180;S.name=abc;end")
 
-            var androidNotification=JSONObject().apply { put("collapse_key",-1)
+            }
+
+            var androidNotification=JSONObject().apply {
+                put("collapse_key",-1)
                 put("title","HMS Feature")
                 put("body","Hello world")
                 put("click_action",clickAction)
-
             }
 
             var androidObj=JSONObject()
 
             var messageObj=JSONObject()
+            messageObj.put("data","Hello Huawei")
 
             when(notificationType)
             {
                 NOTIFICATION_TYPE.NORMAL->{
-                    messageObj.put("data","Hello Huawei")
+
+                  //  messageObj.put("notification",notificationObj)
                 }
 
                 NOTIFICATION_TYPE.IMAGE->{
-                    androidNotification.put("body","Image notification")
-                    androidNotification.put("image","https://huaweimobileservices.com/wp-content/uploads/2018/08/themes-icon.png")
+                    androidNotification.apply {
+                        put("body","Image notification")
+                        put("image","https://huaweimobileservices.com/wp-content/uploads/2018/08/themes-icon.png")
+                        put("click_action",clickAction)
+                        put("default_sound",true)
+                    }
                     androidObj.put("notification",androidNotification)
                     messageObj.put("android",androidObj)
-
                 }
 
                 NOTIFICATION_TYPE.SOUND->{
-                    androidNotification.put("body","Sound notification")
-                    androidNotification.put("sound","raw/bongo_n")
+                    androidNotification.apply {
+                        put("body","Sound notification")
+                        put("sound","/raw/bongo_n")
+                        put("default_sound",false)
+                        put("importance","HIGH")
+                        put("channel_id","RingRing")
+                        put("click_action",JSONObject().apply {
+                            put("type",1)
+                            put("intent","intent://com.hms.features/deeplink?#Intent;scheme=deeplink2;launchFlags=0x4000000;i.age=180;S.name=abc;end")
 
-
+                        })
+                    }
                     androidObj.put("notification",androidNotification)
                     messageObj.put("android",androidObj)
                 }
@@ -129,17 +149,98 @@ class BasicPushActivity: AppCompatActivity() {
 
                 NOTIFICATION_TYPE.BANDGE->{
                     androidNotification.put("body","Badge notification")
-                    androidNotification.put("badge",JSONObject().apply { put("add_num",1 )})
+                    androidNotification.put("badge",JSONObject().apply { put("add_num",1 )
+                                                                               put("class","com.hms.features")})
                     androidObj.put("notification",androidNotification)
                     messageObj.put("android",androidObj)
                 }
+
+                NOTIFICATION_TYPE.INBOX_STYLE->{
+
+                    androidNotification.apply {
+
+                        put("style",3)
+                        put("big_title","HMS Core SDK 4.0.0 Feature Description")
+                        put("inbox_content",JSONArray().apply { put("1. Added the function of displaying notification messages on the UI.")
+                                                               put("2. Added the automatic initialization capability")
+                                                               put("3. Added the function of sending messages to web apps through the WebPush agent.")
+                                                                put("4. Added the function of sending messages to web apps through the WebPush agent.")})
+                    }
+
+                    androidObj.put("notification",androidNotification)
+                    messageObj.put("android",androidObj)
+
+                }
+
+                NOTIFICATION_TYPE.WITH_BUTTONS->{
+                    androidNotification.apply {
+
+                        put("style",1)
+                        put("big_title","HUAWEI Push Kit")
+                        put("big_body","HUAWEI Push Kit is a messaging service provided by Huawei for developers. It establishes a messaging channel from the cloud to devices")
+                        put("buttons",JSONArray().apply {put(JSONObject().apply { put("action_type",0)
+                                                                                        put("name","Learn More")
+                                                                                        put("intent","hmsdeeplink://com.hms.features:8080/details?param1=3")})
+                                                                put(JSONObject().apply { put("action_type",3)
+                                                                                         put("name","Ignore") })})
+                                                                }
+                    androidObj.put("notification",androidNotification)
+                    messageObj.put("android",androidObj)
+
+                }
+
+                NOTIFICATION_TYPE.HIDING_LOCK_SCREEN->{
+                    androidNotification.put("visibility","PRIVATE")
+                    androidObj.put("notification",androidNotification)
+                    messageObj.put("android",androidObj)
+
+                }
+
+                NOTIFICATION_TYPE.SILENT_PUSH->{
+                    androidNotification.put("foreground_show",false)
+                    androidObj.put("notification",androidNotification)
+                    messageObj.put("android",androidObj)
+
+                }
+
+                NOTIFICATION_TYPE.DEEP_LINK->{
+                    androidNotification.apply {
+                        put("body","Deep link notification")
+                        put("image","https://huaweimobileservices.com/wp-content/uploads/2018/08/themes-icon.png")
+                        put("click_action",JSONObject().apply {
+                            put("type",1)
+                            put("intent","intent://com.hms.features/deeplink?#Intent;scheme=deeplink2;launchFlags=0x4000000;i.age=180;S.name=abc;end")
+
+                        })
+                    }
+
+                    androidObj.put("notification",androidNotification)
+                    messageObj.put("android",androidObj)
+                }
+
+                NOTIFICATION_TYPE.DEEP_LINK_WEB->{
+                    androidNotification.apply {
+                        put("body","Deep link web notification")
+                        put("image","https://huaweimobileservices.com/wp-content/uploads/2018/08/themes-icon.png")
+                        put("click_action",JSONObject().apply {
+                            put("type",2)
+                            put("url","https://developer.huawei.com/consumer/en/doc/development/HMS-3-References/push-server-send")
+
+                        })
+                    }
+
+                    androidObj.put("notification",androidNotification)
+                    messageObj.put("android",androidObj)
+
+                }
+
             }
 
                 messageObj.apply {
-                 //   put("data","Notification")
+                  //  put("data","Notification")
+                  //  put("notification",notificationObj)
                     put("token",jsonArray)
-                    if(notificationType!=NOTIFICATION_TYPE.NORMAL)
-                        put("notification",notificationObj)
+
                 }
 
             requestBody=JSONObject().apply {
@@ -169,11 +270,11 @@ class BasicPushActivity: AppCompatActivity() {
         }, Response.ErrorListener {
             Log.d("PUSH:",it.toString())
             if(Utils.ACCESS_TOKEN!=null) {
-                Toast.makeText(this, it.toString(), Toast.LENGTH_LONG).show()
+                //Toast.makeText(this, it.toString(), Toast.LENGTH_LONG).show()
                 textV!!.text = it.toString()
             }else
             {
-                Toast.makeText(this, "Please login to Huawei account using Account Kit", Toast.LENGTH_LONG).show()
+               // Toast.makeText(this, "Please login to Huawei account using Account Kit", Toast.LENGTH_LONG).show()
                 textV!!.text = "Please login to Huawei account using Account Kit"
             }
         } ){

@@ -1,5 +1,82 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hms.mlkit">
 
-    /
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- add authorization of camera -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <permission
+        android:name="com.huawei.mlkit.asr.permission"
+        android:label="ASR" />
+
+    <application
+        android:requestLegacyExternalStorage = "true">
+
+        <activity android:name=".MLActivity"/>
+        <activity android:name=".MLSubActivity"/>
+
+        <activity android:name="com.mlkit.sampletext.activity.HumanSkeletonActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.mlkit.sampletext.activity.ImageClassificationActivity"
+            android:launchMode="singleTask"
+            android:resizeableActivity="false" />
+        <activity
+            android:name="com.mlkit.sampletext.activity.ObjectDetectionActivity"
+            android:launchMode="singleTask"
+            android:resizeableActivity="false" />
+        <activity
+            android:name="com.mlkit.sampletext.activity.FaceDetectionActivity"
+            android:launchMode="singleTask"
+            android:resizeableActivity="false" />
+        <activity
+            android:name="com.mlkit.sampletext.activity.StartActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mlkit.sampletext.activity.RemoteDetectionActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.mlkit.sampletext.activity.SettingActivity"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name="com.mlkit.sampletext.activity.ImageSegmentationActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name="com.mlkit.sampletext.activity.LoadPhotoActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
+
+        <activity
+            android:name="com.mlkit.sampletext.activity.TakePhotoActivity"
+            android:resizeableActivity="false" />
+
+        <activity
+            android:name="com.mlkit.sampletext.activity.StillCutPhotoActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
+
+        <!--<activity
+            android:name="com.mlkit.com.mlkit.sample.activity.ProductVisionSearchActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask"></activity>-->
+
+
+    </application>
+
 </manifest>

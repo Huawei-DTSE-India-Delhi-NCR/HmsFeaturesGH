@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/send_basic_push"
@@ -126,5 +130,156 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/send_inbox_push"
+        android:orientation="vertical"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:text="Send Inbox Push Notification"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:lines="1"
+        android:letterSpacing="0.1"
+        android:background="@drawable/custom_btn"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:onClick="sendInboxPushNotification"
+        app:layout_constraintTop_toBottomOf="@id/send_badge_push"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/send_hide_push"
+        android:orientation="vertical"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:text="Hide Notification When screen Locked"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:lines="1"
+        android:letterSpacing="0.1"
+        android:background="@drawable/custom_btn"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:onClick="sendHidePushNotification"
+        app:layout_constraintTop_toBottomOf="@id/send_inbox_push"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/send_buttons_push"
+        android:orientation="vertical"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:text="Notification With Buttons"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:lines="1"
+        android:letterSpacing="0.1"
+        android:background="@drawable/custom_btn"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:onClick="sendButtonsPushNotification"
+        app:layout_constraintTop_toBottomOf="@id/send_hide_push"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/send_silent_push"
+        android:orientation="vertical"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:text="Silent Push Notification"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:lines="1"
+        android:letterSpacing="0.1"
+        android:background="@drawable/custom_btn"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:onClick="sendSilentPushNotification"
+        app:layout_constraintTop_toBottomOf="@id/send_buttons_push"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/send_deeplink_push"
+            android:orientation="vertical"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:text="Deeplink Push Notification"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:lines="1"
+            android:letterSpacing="0.1"
+            android:background="@drawable/custom_btn"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:onClick="sendDeeplinkPushNotification"
+            app:layout_constraintTop_toBottomOf="@id/send_silent_push"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/send_deeplink_web_push"
+            android:orientation="vertical"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:text="Deeplink to Webview Push Notification"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:lines="1"
+            android:letterSpacing="0.1"
+            android:background="@drawable/custom_btn"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:onClick="sendDeeplinkWebPushNotification"
+            app:layout_constraintTop_toBottomOf="@id/send_deeplink_push"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>
+
+

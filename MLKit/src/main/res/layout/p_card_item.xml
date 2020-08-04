@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="ml"
+            type="com.hms.mlkit.utils.MLObject" />
+
+    </data>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintDimensionRatio="W, 1:1"
+        android:background="#E0F7FA"
+        app:cardCornerRadius="15dp"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tintMode="src_in"
+            android:layout_margin="5dp"
+            android:background="@drawable/corner_radious_only"
+            android:padding="30dp"
+            android:src="@mipmap/hh"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            />
+
+
+        <TextView
+            android:id="@+id/feature_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:text="@{ml.title}"
+            android:maxLines="2"
+            android:ellipsize="marquee"
+            android:layout_margin="5dp"
+            android:backgroundTint="#10000000"
+            android:paddingBottom="15dp"
+            android:gravity="center"
+
+            />
+
+        <!--android:text="@{feature.featureName}"-->
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

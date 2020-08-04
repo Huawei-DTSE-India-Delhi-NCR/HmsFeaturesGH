@@ -7,11 +7,12 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
 import com.hms.accountkit.utils.AccountConst
+import com.hms.availabletoalllbraries.BaseActivity
 import com.hms.availabletoalllbraries.reflections.CallClassMethods
 import com.hms.availabletoalllbraries.utils.Utils
 import kotlin.reflect.KClass
 
-class LoginDemoActivity: AppCompatActivity(){
+class LoginDemoActivity: BaseActivity(true){
 
     lateinit var basicDemoBtn: AppCompatTextView
 
@@ -22,18 +23,25 @@ class LoginDemoActivity: AppCompatActivity(){
 
         basicDemoBtn=findViewById(R.id.basic_agc)
 
+      moveToSignIn()
+
         basicDemoBtn.setOnClickListener(View.OnClickListener {
-            var kotlinClass: KClass<*>?=null
-            if(Utils.isHmsorGms(this)){
-                kotlinClass=CallClassMethods.getKotlinClass(AccountConst.HBasicLoginActivity_PATH)
-            } else
-            {
-                kotlinClass=CallClassMethods.getKotlinClass(AccountConst.GBasicLoginActivity_PATH)
-            }
-            CallClassMethods.callCompanionFunction(kotlinClass!!,AccountConst.newStartActivity_METHOD)
-                .call(CallClassMethods.getCompanionObjectInstance(kotlinClass!!), this)
+           moveToSignIn()
             })
 
+    }
+
+    fun moveToSignIn()
+    {
+        var kotlinClass: KClass<*>?=null
+        if(Utils.isHmsorGms(this)){
+            kotlinClass=CallClassMethods.getKotlinClass(AccountConst.HBasicLoginActivity_PATH)
+        } else
+        {
+            kotlinClass=CallClassMethods.getKotlinClass(AccountConst.GBasicLoginActivity_PATH)
+        }
+        CallClassMethods.callCompanionFunction(kotlinClass!!,AccountConst.newStartActivity_METHOD)
+            .call(CallClassMethods.getCompanionObjectInstance(kotlinClass!!), this)
     }
 
 

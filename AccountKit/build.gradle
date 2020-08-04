@@ -99,6 +99,7 @@ dependencies {
 
     xmsghImplementation 'com.huawei.hms:hwid:4.0.1.300'
     xmsghImplementation 'com.huawei.hms:base:4.0.3.301'
+
     xmsghImplementation 'com.google.firebase:firebase-auth:19.3.1'
     xmsghImplementation 'com.google.android.gms:play-services-auth:18.0.0'
 
