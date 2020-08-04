@@ -40,7 +40,7 @@ class FeaturesViewPagerAdapter(context: Context,size: Int ) : RecyclerView.Adapt
         fun bind(category: Int) {
             itemView.vp_img.setImageDrawable(ResourcesCompat.getDrawable(itemView.resources, R.mipmap.image_3,null))
             if(category==1)
-                itemView.vp_title.text="Find Nearest Banks"
+                itemView.vp_title.text="Find Places on map"
             else
                 itemView.vp_title.text="Choose Image we'll find location on map"
 
@@ -53,8 +53,6 @@ class FeaturesViewPagerAdapter(context: Context,size: Int ) : RecyclerView.Adapt
                                 NearbyPlacesActivity::class.java
                             )
                         )
-
-
                     }
                     else
                     {

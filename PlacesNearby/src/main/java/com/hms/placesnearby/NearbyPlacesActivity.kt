@@ -36,6 +36,7 @@ class NearbyPlacesActivity: BaseActivity(true) {
     private var longtitude:Double = 12.9698
     private  var latitude:kotlin.Double = 77.7500
     private var distanceID: TextView? =null
+    private var queryText: TextView? =null
     private  var yourLatitude:TextView? = null
     private  var yourLongtitude:TextView? = null
     private var searchHospitalImage: AppCompatButton? = null
@@ -58,6 +59,7 @@ class NearbyPlacesActivity: BaseActivity(true) {
         hospitalLat = ArrayList()
         hospitalLong = ArrayList()
         distanceID = findViewById(R.id.distanceID)
+        queryText = findViewById(R.id.queryString)
         yourLatitude = findViewById<TextView>(R.id.yourLatitude)
         yourLongtitude = findViewById<TextView>(R.id.yourLongtitude)
         checkPermissions()
@@ -74,9 +76,12 @@ class NearbyPlacesActivity: BaseActivity(true) {
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
+
+
+
                     val desiredRadius = distanceID!!.getText().toString()
                         .toInt() * 1000 //Convert the value to the int
-                    findHospitalsBySiteKit(desiredRadius) // Use Site Kit
+                    findHospitalsBySiteKit(desiredRadius,queryText!!.text.toString()) // Use Site Kit
 
                   //  sendHospitalData()
                     //showHospitalsInMap() // Show on Map Kit
@@ -262,7 +267,7 @@ class NearbyPlacesActivity: BaseActivity(true) {
 
 
 
-    private fun findHospitalsBySiteKit(desiredRadius: Int) {
+    private fun findHospitalsBySiteKit(desiredRadius: Int, query: String) {
         searchService =SearchServiceFactory.create(this, URLEncoder.encode("CV7toecX0FS1JG9Yc9Xck3lZoCt9OyphFVPa9yhlBj5hJPzno5ajoiZGlXHQjAeHk6107nU1LB4LGXL9aPfcEMedgwDI", "utf-8")); //Create searchService Object
 //        val location = Coordinate(latitude, longtitude) // User location
         val location = Coordinate(12.9698, 77.7500) // User location
@@ -270,11 +275,11 @@ class NearbyPlacesActivity: BaseActivity(true) {
             NearbySearchRequest() // Create a nearbySearchRequest
         nearbySearchRequest.location = location // Set user location
        // nearbySearchRequest.query = "Hospital" // Set query hospital
-        nearbySearchRequest.query = "" // Set query hospital
+        nearbySearchRequest.query = query // Set query hospital
         nearbySearchRequest.pageSize = 10
         nearbySearchRequest.pageIndex=1
         nearbySearchRequest.radius = desiredRadius
-        nearbySearchRequest.poiType = LocationType.BANK
+       // nearbySearchRequest.poiType = LocationType.BANK
         val resultListener: SearchResultListener<NearbySearchResponse?> =
             object : SearchResultListener<NearbySearchResponse?> {
                 // Return search results upon a successful search.

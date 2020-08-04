@@ -1,12 +1,15 @@
 package com.hms.landmarklocations
 
+import android.Manifest
 import android.app.Activity
 import android.app.Dialog
 import android.content.ContentValues
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
@@ -17,6 +20,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import com.hms.landmarklocations.utils.LandmarkTransactor
 import com.hms.placesnearby.NearByHospitalActivity
 import com.huawei.agconnect.config.AGConnectServicesConfig
@@ -163,6 +167,8 @@ class LandMarkActivity:com.mlkit.sampletext.activity.BaseActivity(), View.OnClic
         val config =AGConnectServicesConfig.fromContext(application)
         MLApplication.getInstance().setApiKey(config.getString("client/api_key"))
         getImageButton!!.setOnClickListener(this@LandMarkActivity)
+
+       checkPermissions()
         createImageTransactor()
         createDialog()
         isLandScape = this.resources
@@ -176,6 +182,72 @@ class LandMarkActivity:com.mlkit.sampletext.activity.BaseActivity(), View.OnClic
             startCamera()
         }
     }
+
+    private fun checkPermissions() {
+        //Check Permissions
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+            Log.i("TAG", "sdk < 28 Q")
+            if (ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) !== PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) !== PackageManager.PERMISSION_GRANTED
+            ) {
+                val strings = arrayOf(
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+                ActivityCompat.requestPermissions(this, strings, 1)
+            }
+        } else {
+            if (ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) !== PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )  !== PackageManager.PERMISSION_GRANTED
+            ) {
+                val strings = arrayOf(
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+                ActivityCompat.requestPermissions(this, strings, 2)
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == 1) {
+            if (grantResults.size > 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED
+            ) {
+                Log.i(TAG, "onRequestPermissionsResult: apply READ PERMISSION successful")
+            } else {
+                Log.i(TAG, "onRequestPermissionsResult: apply READ PERMISSSION  failed")
+            }
+        }
+        if (requestCode == 2) {
+            if (grantResults.size > 2 && grantResults[2] == PackageManager.PERMISSION_GRANTED && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED
+            ) {
+                Log.i(
+                    TAG,
+                    "onRequestPermissionsResult: apply WRITE successful"
+                )
+            } else {
+                Log.i(TAG, "onRequestPermissionsResult: apply WRITE  failed")
+            }
+        }
+    }
+
 
     private fun initTitle() {
         title = findViewById(R.id.page_title)
