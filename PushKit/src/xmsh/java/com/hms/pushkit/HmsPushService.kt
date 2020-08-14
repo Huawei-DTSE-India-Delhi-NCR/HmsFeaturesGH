@@ -1,11 +1,12 @@
 package com.hms.pushkit
 
+import android.content.Intent
 import android.util.Log
 import android.widget.Toast
 import com.huawei.hms.push.HmsMessageService
 import com.huawei.hms.push.RemoteMessage
-import java.lang.Exception
 import java.util.*
+
 
 class HmsPushService: HmsMessageService() {
 
@@ -14,7 +15,8 @@ class HmsPushService: HmsMessageService() {
     override fun onNewToken(token: String?) {
         super.onNewToken(token)
         Log.i(TAG, "receive token:$token");
-
+        //BasicPushActivity.token=token
+        sendTokenToDisplay(token!!)
     }
 
     override fun onTokenError(p0: Exception?) {
@@ -36,6 +38,11 @@ class HmsPushService: HmsMessageService() {
 
     }
 
+    private fun sendTokenToDisplay(token: String) {
+        val intent = Intent("com.huawei.push.codelab.ON_NEW_TOKEN")
+        intent.putExtra("token", token)
+        sendBroadcast(intent)
+    }
 
 
     override fun onMessageReceived(message: RemoteMessage?) {

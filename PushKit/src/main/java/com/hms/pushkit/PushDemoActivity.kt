@@ -27,62 +27,83 @@ class PushDemoActivity:BaseActivity(true) {
 
     fun sendPushNotification(view:View)
     {
-        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.NORMAL)
+        BasicPushActivity.newStartActivity(this,NOTIFICATION_TYPE.NORMAL)
+//        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.NORMAL)
     }
 
     fun sendImagePushNotification(view:View)
     {
-        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.IMAGE)
+        BasicPushActivity.newStartActivity(this,NOTIFICATION_TYPE.IMAGE)
+//        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.IMAGE)
     }
 
     fun sendSoundPushNotification(view:View)
     {
-        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.SOUND)
+        BasicPushActivity.newStartActivity(this,NOTIFICATION_TYPE.SOUND)
+//        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.SOUND)
     }
 
     fun sendLargePushNotification(view:View)
     {
-        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.LARGE)
+        BasicPushActivity.newStartActivity(this,NOTIFICATION_TYPE.LARGE)
+//        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.LARGE)
     }
 
     fun sendBadgePushNotification(view:View)
     {
-        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.BANDGE)
+        BasicPushActivity.newStartActivity(this,NOTIFICATION_TYPE.BANDGE)
+//        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.BANDGE)
     }
 
     fun sendInboxPushNotification(view:View)
     {
-        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.INBOX_STYLE)
+        BasicPushActivity.newStartActivity(this,NOTIFICATION_TYPE.INBOX_STYLE)
+//        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.INBOX_STYLE)
     }
 
     fun sendHidePushNotification(view:View)
     {
-        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.HIDING_LOCK_SCREEN)
+        BasicPushActivity.newStartActivity(this,NOTIFICATION_TYPE.HIDING_LOCK_SCREEN)
+//        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.HIDING_LOCK_SCREEN)
     }
 
     fun sendButtonsPushNotification(view:View)
     {
-        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.WITH_BUTTONS)
+        BasicPushActivity.newStartActivity(this,NOTIFICATION_TYPE.WITH_BUTTONS)
+//        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.WITH_BUTTONS)
     }
 
     fun sendSilentPushNotification(view:View)
     {
-        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.SILENT_PUSH)
+        BasicPushActivity.newStartActivity(this,NOTIFICATION_TYPE.SILENT_PUSH)
+//        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.SILENT_PUSH)
     }
 
     fun sendDeeplinkPushNotification(view:View)
     {
-        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.DEEP_LINK)
+        BasicPushActivity.newStartActivity(this,NOTIFICATION_TYPE.DEEP_LINK)
+//        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.DEEP_LINK)
     }
 
     fun sendDeeplinkWebPushNotification(view:View)
     {
-        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.DEEP_LINK_WEB)
+        BasicPushActivity.newStartActivity(this,NOTIFICATION_TYPE.DEEP_LINK_WEB)
+//        moveToPushNewActivity(PushConst.basePushActivity_PATH, PushConst.newStartActivity_METHOD, this,NOTIFICATION_TYPE.DEEP_LINK_WEB)
     }
 
     fun moveToPushNewActivity(pathName: String, methodName: String, context: Context, notificationType: NOTIFICATION_TYPE)
     {
-        if(Utils.isHmsorGms(this)) {
+
+        var kotlinClass: KClass<*>? = null
+        kotlinClass = CallClassMethods.getKotlinClass(pathName)
+        CallClassMethods.callCompanionFunction(kotlinClass!!, methodName)
+            .call(
+                CallClassMethods.getCompanionObjectInstance(kotlinClass!!),
+                context,
+                notificationType
+            )
+
+        /*if(Utils.isHmsorGms(this)) {
             var kotlinClass: KClass<*>? = null
             kotlinClass = CallClassMethods.getKotlinClass(pathName)
             CallClassMethods.callCompanionFunction(kotlinClass!!, methodName)
@@ -93,7 +114,7 @@ class PushDemoActivity:BaseActivity(true) {
                 )
         }else{
             Toast.makeText(this,"GMS is not available",Toast.LENGTH_LONG).show()
-        }
+        }*/
 
     }
 

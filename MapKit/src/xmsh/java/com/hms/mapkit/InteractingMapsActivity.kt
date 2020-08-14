@@ -72,10 +72,6 @@ class InteractingMapsActivity :BaseActivity(true), OnMapReadyCallback, HuaweiMap
             mMapView?.getMapAsync(this)
         }
 
-
-
-
-
     }
 
 

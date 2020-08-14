@@ -8,7 +8,7 @@
     android:padding="50dp">
 
     <TextView
-        android:layout_marginTop="25dp"
+    android:layout_marginTop="25dp"
     android:id="@+id/findNearestHospitals"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -99,24 +99,23 @@ android:orientation="vertical"
     <EditText
         android:id="@+id/queryString"
         android:layout_width="match_parent"
-        android:layout_weight="4"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:layout_height="wrap_content"
         android:hint="Enter place name"
         android:gravity="center"
         android:inputType="text"/>
 
 <EditText
     android:id="@+id/distanceID"
-    android:layout_width="match_parent"
-    android:layout_weight="4"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_margin="10dp"
-    android:layout_height="wrap_content"
     android:hint="Enter your distance in KMs(Max 50)"
     android:gravity="center"
-    android:inputType="number"/>
+    android:inputType="number"
+    android:lines="2"/>
 
 <androidx.appcompat.widget.AppCompatButton
     android:id="@+id/searchHospitalImage"

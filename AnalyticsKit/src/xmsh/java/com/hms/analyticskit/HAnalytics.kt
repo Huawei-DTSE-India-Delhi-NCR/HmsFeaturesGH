@@ -45,7 +45,7 @@ class HAnalytics(){
 
     fun logEvent(eventName: String?, bundle: Bundle?) {
         hiAnalyticsInstance.onEvent(eventName, bundle)
-        //Utils.showMessage(eventName!!, cContext)
+      //  Utils.showMessage(eventName!!, cContext)
 
     }
 

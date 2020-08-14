@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/source_text"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:hint="Source Address"
+        android:textColor="#000000"
+        android:paddingLeft="20dp"
+        android:paddingRight="40dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="center"
+        android:background="@drawable/curve_white_bg"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:onClick="sourceSearch"
+        android:clickable="true"
+        android:maxLines="1"
+        android:scrollHorizontally="true"/>
+
+    <ImageView
+        android:id="@+id/img_s_mic"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/mic_b"
+        app:layout_constraintRight_toRightOf="@id/source_text"
+        app:layout_constraintTop_toTopOf="@id/source_text"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:onClick="sourceMicClicked"
+        android:clickable="true"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/des_text"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="Destination Address"
+        android:paddingLeft="20dp"
+        android:paddingRight="40dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:background="@drawable/curve_white_bg"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:onClick="destinationSearch"
+        android:clickable="true"
+        app:layout_constraintTop_toBottomOf="@id/source_text"
+        android:maxLines="1"
+        android:scrollHorizontally="true"
+        />
+
+    <ImageView
+        android:id="@+id/img_d_mic"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/mic_b"
+        app:layout_constraintRight_toRightOf="@id/des_text"
+        app:layout_constraintTop_toTopOf="@id/des_text"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:onClick="destinationMicClicked"
+        android:clickable="true"/>
+
+    <com.huawei.hms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        app:cameraTargetLat="51"
+        app:cameraTargetLng="10"
+        app:cameraZoom="8.5"
+        app:mapType="normal"
+        app:uiCompass="true"
+        app:uiZoomControls="true"
+        app:layout_constraintTop_toBottomOf="@id/des_text"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="100dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

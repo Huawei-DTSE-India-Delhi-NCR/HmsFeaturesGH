@@ -15,6 +15,10 @@
             </intent-filter>
         </service>
 
+        <meta-data
+            android:name="push_kit_auto_init_enabled"
+            android:value="true" />
+
     </application>
 
 

@@ -30,14 +30,7 @@
             android:textSize="@dimen/text_size_17sp"
             android:visibility="gone"></TextView>
 
-        <Button
-            android:id="@+id/getImageButton"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/add_image" />
+
     </RelativeLayout>
 
     <ImageView
@@ -54,4 +47,31 @@
         android:layout_height="fill_parent"
         android:layout_below="@id/toolbar"
         android:layout_alignParentBottom="true" />
+
+    <TextView
+        android:id="@+id/hint_text"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignBottom="@id/getImageButton"
+        android:background="@drawable/rect_dash_border"
+        android:layout_marginBottom="100dp"
+        android:text="Select any landmark image \n we'll find the location on map"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:lineSpacingExtra="2dp"></TextView>
+
+    <Button
+        android:id="@+id/getImageButton"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/curve_white_bg"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/black"
+        android:text="Pick Image"
+        />
 </RelativeLayout>

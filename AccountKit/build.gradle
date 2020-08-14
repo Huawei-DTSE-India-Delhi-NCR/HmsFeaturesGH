@@ -25,14 +25,7 @@ android {
 
     flavorDimensions "xadaptor"
     productFlavors {
-        xmsg {
-            dimension "xadaptor"
-            versionNameSuffix "-xmsg"
-        }
-        xmsgh {
-            dimension "xadaptor"
-            versionNameSuffix "-xmsgh"
-        }
+
         xmsh {
             dimension "xadaptor"
             versionNameSuffix "-xmsh"
@@ -56,25 +49,7 @@ android {
             }
         }
 
-        xmsg {
-            java {
-                srcDirs 'src/xmsg/java'
-            }
 
-            res {
-                srcDirs 'src/xmsg/res'
-            }
-        }
-
-        xmsgh {
-            java {
-                srcDirs 'src/xmsgh/java','src/xmsg/java','src/xmsh/java'
-            }
-
-            res {
-                srcDirs 'src/xmsgh/res','src/xmsg/res','src/xmsh/res'
-            }
-        }
     }
 
 }
@@ -94,13 +69,6 @@ dependencies {
     xmshImplementation 'com.huawei.hms:hwid:4.0.1.300'
     xmshImplementation 'com.huawei.hms:base:4.0.3.301'
 
-    xmsgImplementation 'com.google.firebase:firebase-auth:19.3.1'
-    xmsgImplementation 'com.google.android.gms:play-services-auth:18.0.0'
 
-    xmsghImplementation 'com.huawei.hms:hwid:4.0.1.300'
-    xmsghImplementation 'com.huawei.hms:base:4.0.3.301'
-
-    xmsghImplementation 'com.google.firebase:firebase-auth:19.3.1'
-    xmsghImplementation 'com.google.android.gms:play-services-auth:18.0.0'
 
 }

@@ -9,6 +9,7 @@ import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.net.Uri
+import android.opengl.Visibility
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -83,6 +84,8 @@ class LandMarkActivity:com.mlkit.sampletext.activity.BaseActivity(), View.OnClic
     private var landmarkTitle: ArrayList<String>? = null
     private var landmarkLat: ArrayList<String>? = null
     private var landmarkLong: ArrayList<String>? = null
+
+    lateinit var hintText:TextView
 
     private class MsgHandler(mainActivity: LandMarkActivity) :
         Handler() {
@@ -164,6 +167,7 @@ class LandMarkActivity:com.mlkit.sampletext.activity.BaseActivity(), View.OnClic
         preview = findViewById(R.id.still_preview)
         graphicOverlay = findViewById(R.id.still_overlay)
         getImageButton = findViewById(R.id.getImageButton)
+        hintText=findViewById(R.id.hint_text)
         val config =AGConnectServicesConfig.fromContext(application)
         MLApplication.getInstance().setApiKey(config.getString("client/api_key"))
         getImageButton!!.setOnClickListener(this@LandMarkActivity)
@@ -175,7 +179,7 @@ class LandMarkActivity:com.mlkit.sampletext.activity.BaseActivity(), View.OnClic
             .configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
         this.setStatusBar()
         if (type == null) {
-            selectLocalImage()
+          //  selectLocalImage()
         } else if (type == Constant.TYPE_SELECT_IMAGE) {
             selectLocalImage()
         } else {
@@ -264,6 +268,7 @@ class LandMarkActivity:com.mlkit.sampletext.activity.BaseActivity(), View.OnClic
 
     override fun onClick(view: View) {
         if (view.id == R.id.getImageButton) {
+            hintText.visibility=View.GONE
             this.showDialog()
         }
     }

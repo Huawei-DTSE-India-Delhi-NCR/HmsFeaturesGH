@@ -102,7 +102,7 @@ class NearByHospitalActivity: BaseActivity(true), OnMapReadyCallback {
 
         val cameraPosition = CameraPosition.Builder()
             .target(mMarker!!.position) // Sets the center of the map to location user
-            .zoom(20f) // Sets the zoom
+            .zoom(10f) // Sets the zoom
             .bearing(90f) // Sets the orientation of the camera to east
             .tilt(40f) // Sets the tilt of the camera to 30 degrees
             .build() // Creates a CameraPosition from the builder

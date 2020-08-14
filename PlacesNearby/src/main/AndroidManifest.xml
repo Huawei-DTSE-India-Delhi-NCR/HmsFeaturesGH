@@ -17,6 +17,9 @@
 
         <activity android:name=".NearbyPlacesActivity"/>
         <activity android:name=".NearByHospitalActivity"/>
+        <activity android:name=".MapsActivity"/>
+        <activity android:name=".SourceDestinationActivity"/>
+        <activity android:name=".PlacesFragment"/>
 
         <meta-data
             android:name="com.huawei.hms.client.appid"

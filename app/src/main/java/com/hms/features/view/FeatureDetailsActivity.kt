@@ -89,6 +89,8 @@ class FeatureDetailsActivity: AppCompatActivity() {
 //                        AGConnectCrash.getInstance().enableCrashCollection(true)
 //                        AGConnectCrash.getInstance().testIt(this@FeatureDetailsActivity)
 
+//                        startActivity(Intent(this@FeatureDetailsActivity,AppLinkDemo::class.java))
+
                        startActivity(Intent(this@FeatureDetailsActivity,MapDemoActivity::class.java))
 
 //                        startActivity(Intent(this@FeatureDetailsActivity,NearbyPlacesActivity::class.java))

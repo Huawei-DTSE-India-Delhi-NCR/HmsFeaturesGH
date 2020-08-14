@@ -4,11 +4,45 @@
     <application>
 
         <activity android:name=".AdsDemoActivity"/>
-        <activity android:name=".BannerAdsActivity"/>
-        <activity android:name=".InterstitialAdsActivity"/>
-        <activity android:name=".SplashAdsActivity"/>
-        <activity android:name=".NativeAdsActivity"/>
-        <activity android:name=".RewardAdsActivity"/>
+
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".BannerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NativeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".RewardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".InterstitialActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProtocolActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ConsentActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
 
 

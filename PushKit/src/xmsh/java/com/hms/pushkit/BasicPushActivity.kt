@@ -1,23 +1,21 @@
 package com.hms.pushkit
 
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.text.TextUtils
-import android.text.style.CharacterStyle
 import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.fragment.app.FragmentActivity
-import com.android.volley.Header
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyLog
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.hms.accountkit.LoginDemoActivity
 import com.hms.availabletoalllbraries.BaseActivity
-import com.hms.availabletoalllbraries.reflections.CallClassMethods
 import com.hms.availabletoalllbraries.utils.Utils
 import com.hms.pushkit.utils.NOTIFICATION_TYPE
 import com.huawei.agconnect.config.AGConnectServicesConfig
@@ -27,7 +25,6 @@ import org.json.JSONException
 import org.json.JSONObject
 import java.io.UnsupportedEncodingException
 import java.nio.charset.Charset
-import kotlin.reflect.KClass
 
 
 class BasicPushActivity: BaseActivity(isBackRequired = true) {
@@ -35,7 +32,7 @@ class BasicPushActivity: BaseActivity(isBackRequired = true) {
 
     companion object{
 
-
+        var token: String?=null
 
         fun newStartActivity(context: Context, notificationType: NOTIFICATION_TYPE){
             val intent = Intent(context, BasicPushActivity::class.java)
@@ -49,7 +46,7 @@ class BasicPushActivity: BaseActivity(isBackRequired = true) {
     lateinit var notificationType: NOTIFICATION_TYPE
     val jsonObject=JSONObject()
     var requestBody: String?=null
-    var token: String?=null
+
     var textV:AppCompatTextView?=null
 
 
@@ -68,7 +65,25 @@ class BasicPushActivity: BaseActivity(isBackRequired = true) {
             }
         }
 
-        getToken()
+
+
+        val receiver = MyReceiver()
+        val filter = IntentFilter()
+        filter.addAction("com.huawei.codelabpush.ON_NEW_TOKEN")
+        this.registerReceiver(receiver, filter)
+
+        if(token==null || token!!.length==0){
+            //Toast.makeText(this,"Token is missing", Toast.LENGTH_LONG).show()
+            getToken()
+        } else
+        {
+            callPushServiceApi()
+        }
+
+//        val hmsPushService = HmsPushService()
+//        hmsPushService.startService(intent)
+
+
     }
 
     fun getPushMessage()
@@ -106,8 +121,13 @@ class BasicPushActivity: BaseActivity(isBackRequired = true) {
             when(notificationType)
             {
                 NOTIFICATION_TYPE.NORMAL->{
-
+//                    notificationObj.put("title","HMS Basic")
                   //  messageObj.put("notification",notificationObj)
+                    androidNotification.apply {
+                        put("body","Basic notification")
+                    }
+                    androidObj.put("notification",androidNotification)
+                    messageObj.put("android",androidObj)
                 }
 
                 NOTIFICATION_TYPE.IMAGE->{
@@ -265,13 +285,16 @@ class BasicPushActivity: BaseActivity(isBackRequired = true) {
 
         val stringRequest=object :StringRequest(Request.Method.POST, url, Response.Listener<String> {
             Log.d("PUSH:",it.toString())
+            Log.d("TOKEN:",it.toString())
             Toast.makeText(this,it.toString(),Toast.LENGTH_LONG).show()
             textV!!.text=it.toString()
         }, Response.ErrorListener {
             Log.d("PUSH:",it.toString())
+            Log.d("TOKEN:",it.toString())
             if(Utils.ACCESS_TOKEN!=null) {
                 //Toast.makeText(this, it.toString(), Toast.LENGTH_LONG).show()
                 textV!!.text = it.toString()
+
             }else
             {
                // Toast.makeText(this, "Please login to Huawei account using Account Kit", Toast.LENGTH_LONG).show()
@@ -316,6 +339,7 @@ class BasicPushActivity: BaseActivity(isBackRequired = true) {
 
 
     private fun getToken() {
+
         object : Thread() {
             override fun run() {
                 try {
@@ -326,14 +350,26 @@ class BasicPushActivity: BaseActivity(isBackRequired = true) {
                     if (!TextUtils.isEmpty(pushtoken)) {
                         token=pushtoken
                         Log.i(TAG, "get token:$pushtoken")
-                        // showLog(pushtoken)
+                        Log.i("TOKEN: ", "$pushtoken")
                         callPushServiceApi()
                     }
                 } catch (e: Exception) {
                     Log.i(TAG, "getToken failed, $e")
+                    Log.i("TOKEN: ", "$e")
+
                 }
             }
         }.start()
+    }
+
+    class MyReceiver : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent) {
+            if ("com.huawei.codelabpush.ON_NEW_TOKEN" == intent.action) {
+                val tokenValue = intent.getStringExtra("token")
+                token=tokenValue
+               // tvToken.setText(token)
+            }
+        }
     }
 
 }

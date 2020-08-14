@@ -19,21 +19,37 @@ class AdsDemoActivity: BaseActivity(true) {
 
     fun bannerAdsActivity(view:View)
     {
-        startActivity(Intent(this,BannerAdsActivity::class.java))
+        startActivity(Intent(this,BannerActivity::class.java))
 
     }
 
     fun splashAdsActivity(view:View)
     {
-        startActivity(Intent(this,SplashAdsActivity::class.java))
+        startActivity(Intent(this,SplashActivity::class.java))
 
     }
 
     fun rewardAdsActivity(view:View)
     {
-        startActivity(Intent(this,RewardAdsActivity::class.java))
+        startActivity(Intent(this,RewardActivity::class.java))
 
     }
+
+
+    fun nativeAdsActivity(view:View)
+    {
+        startActivity(Intent(this,NativeActivity::class.java))
+
+    }
+
+
+    fun interstitialAdsActivity(view:View)
+    {
+        startActivity(Intent(this,InterstitialActivity::class.java))
+
+    }
+
+
 
 
 

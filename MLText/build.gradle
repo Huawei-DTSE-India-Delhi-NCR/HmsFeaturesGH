@@ -25,14 +25,7 @@ android {
 
     flavorDimensions "xadaptor"
     productFlavors {
-        xmsg {
-            dimension "xadaptor"
-            versionNameSuffix "-xmsg"
-        }
-        xmsgh {
-            dimension "xadaptor"
-            versionNameSuffix "-xmsgh"
-        }
+
         xmsh {
             dimension "xadaptor"
             versionNameSuffix "-xmsh"
@@ -40,11 +33,7 @@ android {
     }
 
     sourceSets{
-        xmsg {
-            java {
-                srcDirs 'src/xmsg/java'
-            }
-        }
+
 
         xmsh {
             java {
@@ -52,11 +41,7 @@ android {
             }
         }
 
-        xmsgh {
-            java {
-                srcDirs 'src/xmsg/java', 'src/xmsh/java/'
-            }
-        }
+
         main {
             res {
                 srcDirs 'src/main/res', 'src/main/res/'
@@ -101,12 +86,12 @@ dependencies {
 
     implementation 'com.huawei.hms:ml-computer-card-gcr-plugin:2.0.1.300'
 
-    implementation 'com.huawei.hms:ml-computer-card-icr-cn-model:2.0.1.300'
-    implementation 'com.huawei.hms:ml-computer-card-icr-cn-plugin:2.0.1.300'
+    api 'com.huawei.hms:ml-computer-card-icr-cn-model:2.0.1.300'
+    api 'com.huawei.hms:ml-computer-card-icr-cn-plugin:2.0.1.300'
 
 
-    implementation 'com.huawei.hms:ml-computer-card-bcr-plugin:2.0.1.300'
-    implementation 'com.huawei.hms:ml-computer-card-bcr-model:2.0.1.300'
+    api 'com.huawei.hms:ml-computer-card-bcr-plugin:2.0.1.300'
+    api 'com.huawei.hms:ml-computer-card-bcr-model:2.0.1.300'
 
 
     implementation 'com.huawei.hms:ml-computer-voice-aft:2.0.1.300'

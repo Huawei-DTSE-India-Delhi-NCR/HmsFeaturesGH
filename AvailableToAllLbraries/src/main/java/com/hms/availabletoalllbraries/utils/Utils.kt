@@ -5,6 +5,7 @@ import android.content.Intent
 import android.widget.Toast
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
+import java.lang.Exception
 
 class Utils {
 
@@ -16,10 +17,17 @@ class Utils {
 
         fun isHmsorGms(context: Context): Boolean
         {
-            if(GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(context)== ConnectionResult.SUCCESS){
-                return false
+            try {
+                if (GoogleApiAvailability.getInstance()
+                        .isGooglePlayServicesAvailable(context) == ConnectionResult.SUCCESS
+                ) {
+                    return false
+                }
+                return true
+            }catch (ex:Exception)
+            {
+                return true
             }
-            return true
         }
 
         /*fun startFlavorActivity(context: Context,intent: Intent,packageName:String, className:String){

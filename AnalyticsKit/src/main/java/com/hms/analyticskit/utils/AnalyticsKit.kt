@@ -2,7 +2,9 @@ package com.hms.analyticskit.utils
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Debug
 import android.util.Log
+import com.hms.analyticskit.HAnalytics
 import com.hms.availabletoalllbraries.SingletonHolder
 import com.hms.availabletoalllbraries.reflections.CallClassMethods
 import com.hms.availabletoalllbraries.utils.Utils
@@ -24,6 +26,8 @@ class AnalyticsKit(var context: Context) {
     }
 
     init {
+
+        HAnalytics.initialise(context)
 
         try {
             if(Utils.isHmsorGms(context))
@@ -47,15 +51,25 @@ class AnalyticsKit(var context: Context) {
 
 
     fun sendUserInfo(){
-            CallClassMethods.callFunction(kotlinClass!!, "sendUserInfo").call(kObject)
+        HAnalytics.analyticsInstance.sendUserInfo()
+//            CallClassMethods.callFunction(kotlinClass!!, "sendUserInfo").call(kObject)
        }
 
     fun logPreDefinedEvent(){
-        CallClassMethods.callFunction(kotlinClass!!, "logPreDefinedEvent").call(kObject)
+        HAnalytics.analyticsInstance.logPreDefinedEvent()
+//        CallClassMethods.callFunction(kotlinClass!!, "logPreDefinedEvent").call(kObject)
          }
 
     fun logEvent(eventName: String?, bundle: Bundle?) {
-        CallClassMethods.callFunction(kotlinClass!!, "logEvent").call(kObject, eventName, bundle)
+
+        HAnalytics.analyticsInstance.logEvent(eventName,bundle)
+        /*try {
+            CallClassMethods.callFunction(kotlinClass!!, "logEvent")
+                .call(kObject, eventName, bundle)
+        } catch (ex:Exception)
+        {
+            Log.e("AE",ex.message)
+        }*/
     }
 
 }

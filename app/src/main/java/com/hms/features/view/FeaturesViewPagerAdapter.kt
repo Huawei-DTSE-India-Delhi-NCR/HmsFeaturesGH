@@ -10,7 +10,9 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.hms.features.R
 import com.hms.landmarklocations.LandMarkActivity
+import com.hms.placesnearby.MapsActivity
 import com.hms.placesnearby.NearbyPlacesActivity
+import com.hms.placesnearby.SourceDestinationActivity
 import com.mlkit.sampletext.util.Constant
 import kotlinx.android.synthetic.main.feature_vp_item.view.*
 
@@ -50,7 +52,7 @@ class FeaturesViewPagerAdapter(context: Context,size: Int ) : RecyclerView.Adapt
                         v!!.context.startActivity(
                             Intent(
                                 v.context,
-                                NearbyPlacesActivity::class.java
+                                SourceDestinationActivity::class.java
                             )
                         )
                     }
@@ -58,7 +60,7 @@ class FeaturesViewPagerAdapter(context: Context,size: Int ) : RecyclerView.Adapt
                     {
 
 
-                        Toast.makeText(v!!.context,"Select image from gallery to get landmark",Toast.LENGTH_LONG).show()
+                      //  Toast.makeText(v!!.context,"Select image from gallery to get landmark",Toast.LENGTH_LONG).show()
                         v!!.context.startActivity(Intent(v!!.context, LandMarkActivity::class.java).apply {
                             putExtra(Constant.MODEL_TYPE, Constant.CLOUD_LANDMARK_DETECTION)
                         })

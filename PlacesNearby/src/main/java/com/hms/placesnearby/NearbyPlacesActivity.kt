@@ -69,7 +69,7 @@ class NearbyPlacesActivity: BaseActivity(true) {
 
         searchHospitalImage!!.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
-                searchHospitalImage!!.visibility=View.GONE
+
                 if (distanceID!!.getText().toString() == "") {
                     Toast.makeText(this@NearbyPlacesActivity,
                         "Please enter a value",
@@ -268,6 +268,7 @@ class NearbyPlacesActivity: BaseActivity(true) {
 
 
     private fun findHospitalsBySiteKit(desiredRadius: Int, query: String) {
+        searchHospitalImage!!.visibility=View.GONE
         searchService =SearchServiceFactory.create(this, URLEncoder.encode("CV7toecX0FS1JG9Yc9Xck3lZoCt9OyphFVPa9yhlBj5hJPzno5ajoiZGlXHQjAeHk6107nU1LB4LGXL9aPfcEMedgwDI", "utf-8")); //Create searchService Object
 //        val location = Coordinate(latitude, longtitude) // User location
         val location = Coordinate(12.9698, 77.7500) // User location

@@ -25,14 +25,7 @@ android {
 
     flavorDimensions "xadaptor"
     productFlavors {
-        xmsg {
-            dimension "xadaptor"
-            versionNameSuffix "-xmsg"
-        }
-        xmsgh {
-            dimension "xadaptor"
-            versionNameSuffix "-xmsgh"
-        }
+
         xmsh {
             dimension "xadaptor"
             versionNameSuffix "-xmsh"
@@ -40,11 +33,7 @@ android {
     }
 
     sourceSets{
-        xmsg {
-            java {
-                srcDirs 'src/xmsg/java'
-            }
-        }
+
 
         xmsh {
             java {
@@ -52,11 +41,7 @@ android {
             }
         }
 
-        xmsgh {
-            java {
-                srcDirs 'src/xmsg/java', 'src/xmsh/java/'
-            }
-        }
+
 
     }
 
@@ -75,6 +60,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     xmshImplementation 'com.huawei.hms:location:4.0.3.303'
-    xmsghImplementation 'com.huawei.hms:location:4.0.3.303'
 
 }

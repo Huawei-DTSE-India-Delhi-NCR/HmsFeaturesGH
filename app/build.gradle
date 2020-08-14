@@ -9,12 +9,22 @@ android {
 
     aaptOptions { cruncherEnabled = false }
 
+    splits {
+        abi {
+            // Enables building multiple APKs per ABI.
+            enable true
+        }
+
+       }
+
     defaultConfig {
         applicationId "com.hms.features"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+
+
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -32,14 +42,8 @@ android {
 
     flavorDimensions "xadaptor"
     productFlavors {
-        xmsg {
-            dimension "xadaptor"
-            versionNameSuffix "-xmsg"
-        }
-        xmsgh {
-            dimension "xadaptor"
-            versionNameSuffix "-xmsgh"
-        }
+
+
         xmsh {
             dimension "xadaptor"
             versionNameSuffix "-xmsh"
@@ -64,26 +68,10 @@ android {
             }
         }
 
-        xmsg {
-            java {
-                srcDirs 'src/xmsg/java'
-            }
 
-            res {
-                srcDirs 'src/xmsg/res'
-            }
-        }
-
-        xmsgh {
-            java {
-                srcDirs 'src/xmsgh/java','src/xmsg/java','src/xmsh/java'
-            }
-
-            res {
-                srcDirs 'src/xmsgh/res','src/xmsg/res','src/xmsh/res'
-            }
-        }
     }
+
+
 
 }
 
@@ -138,16 +126,7 @@ dependencies {
 //    implementation 'com.huawei.agconnect:agconnect-crash:1.4.0.300'
 //  implementation 'com.huawei.hms:hianalytics:5.0.1.300'
 
-}
+    implementation 'com.huawei.agconnect:agconnect-applinking:1.4.0.300'
 
-if (getGradle().getStartParameter().getTaskNames().toString().toLowerCase().contains("xmsh")){
-    apply plugin: 'com.huawei.agconnect'
-} else if(getGradle().getStartParameter().getTaskNames().toString().toLowerCase().contains("xmsgh")){
-    apply plugin: 'com.huawei.agconnect'
-    apply plugin: 'com.google.gms.google-services'
-} else if(getGradle().getStartParameter().getTaskNames().toString().toLowerCase().contains("xmsg")){
-    apply plugin: 'com.google.gms.google-services'
-} else{
-    apply plugin: 'com.huawei.agconnect'
-    apply plugin: 'com.google.gms.google-services'
 }
+apply plugin: 'com.huawei.agconnect'

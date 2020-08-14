@@ -9,6 +9,9 @@ import android.view.View
 import androidx.core.app.ActivityCompat
 import com.hms.availabletoalllbraries.BaseActivity
 import com.hms.availabletoalllbraries.reflections.CallClassMethods
+import com.hms.locationkit.ai.LocationActivityService
+import com.hms.locationkit.basic.BasicLocationActivity
+import com.hms.locationkit.geofence.GeofenceActivity
 import com.hms.locationkit.utils.LocationConst
 
 class LocationDemoActivity: BaseActivity(true) {
@@ -29,17 +32,20 @@ class LocationDemoActivity: BaseActivity(true) {
 
     fun basicLocationDetails(view: View)
     {
-        CallClassMethods.moveToNewActivity(LocationConst.BasicLocationActivity_PATH, LocationConst.newStartActivity_METHOD, this)
+        BasicLocationActivity.newStartActivity(this)
+//        CallClassMethods.moveToNewActivity(LocationConst.BasicLocationActivity_PATH, LocationConst.newStartActivity_METHOD, this)
     }
 
     fun activityLocationDetails(view: View)
     {
-        CallClassMethods.moveToNewActivity(LocationConst.LocationActivityService_PATH, LocationConst.newStartActivity_METHOD, this)
+        LocationActivityService.newStartActivity(this)
+//        CallClassMethods.moveToNewActivity(LocationConst.LocationActivityService_PATH, LocationConst.newStartActivity_METHOD, this)
     }
 
     fun GeofenceLocationDetails(view: View)
     {
-        CallClassMethods.moveToNewActivity(LocationConst.GeofenceActivity_PATH, LocationConst.newStartActivity_METHOD, this)
+        GeofenceActivity.newStartActivity(this)
+//        CallClassMethods.moveToNewActivity(LocationConst.GeofenceActivity_PATH, LocationConst.newStartActivity_METHOD, this)
     }
 
 

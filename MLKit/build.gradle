@@ -25,14 +25,7 @@ android {
 
     flavorDimensions "xadaptor"
     productFlavors {
-        xmsg {
-            dimension "xadaptor"
-            versionNameSuffix "-xmsg"
-        }
-        xmsgh {
-            dimension "xadaptor"
-            versionNameSuffix "-xmsgh"
-        }
+
         xmsh {
             dimension "xadaptor"
             versionNameSuffix "-xmsh"
@@ -40,11 +33,6 @@ android {
     }
 
     sourceSets{
-        xmsg {
-            java {
-                srcDirs 'src/xmsg/java'
-            }
-        }
 
         xmsh {
             java {
@@ -52,11 +40,7 @@ android {
             }
         }
 
-        xmsgh {
-            java {
-                srcDirs 'src/xmsg/java', 'src/xmsh/java/'
-            }
-        }
+
         main {
             res {
                 srcDirs 'src/main/res', 'src/main/res/'
@@ -94,9 +78,12 @@ dependencies {
 
     implementation 'com.huawei.hms:ml-computer-vision-classification:2.0.1.300'
     implementation 'com.huawei.hms:ml-computer-vision-image-classification-model:2.0.1.300'
+
     implementation 'com.huawei.hms:ml-computer-vision-object-detection-model:2.0.1.302'
+
     implementation 'com.huawei.hms:ml-computer-vision-face-emotion-model:2.0.1.300'
     implementation 'com.huawei.hms:ml-computer-vision-face-feature-model:2.0.1.300'
+
     implementation 'com.huawei.hms:ml-computer-vision-face-shape-point-model:2.0.1.300'
     implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.1.300'
 
